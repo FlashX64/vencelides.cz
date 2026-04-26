@@ -1,0 +1,18 @@
+images:
+  - image: /media/projects/lightmapper/lm-box-indirect-sh-diff.jpg
+    description: "Precomputed global illumination (3rd-order SH); albedo + normal mapping."
+  - image: /media/projects/lightmapper/lm-box-indirect-sh.jpg
+    description: "Precomputed global illumination (3rd-order SH); lighting only, normal mapping."
+  - image: /media/projects/lightmapper/lm-box-indirect-flat-diff.jpg
+    description: "Precomputed global illumination (non-directional); albedo."
+  - image: /media/projects/lightmapper/lm-box-indirect-flat-light.jpg
+    description: "Precomputed global illumination (non-directional); lighting only."
+  - image: /media/projects/lightmapper/lm-box-direct-sh.jpg
+    description: "Precomputed direct lighting (3rd-order SH); lighting only, normal mapping."
+  - image: /media/projects/lightmapper/lm-box-direct-diff.jpg
+    description: "Dynamic direct lighting (no shadows); albedo + normal mapping."
+  - image: /media/projects/lightmapper/lm-box-direct-light-norm.jpg
+    description: "Dynamic direct lighting only (no shadows); normal mapping."
+  - image: /media/projects/lightmapper/lm-box-direct-light.jpg
+    description: "Dynamic direct lighting only (no shadows); face normals."
+

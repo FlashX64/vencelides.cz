@@ -1,0 +1,18 @@
+{{ $src := .Get "src" }}
+
+{{ $video := resources.Get $src }}
+{{ if $video }}
+    {{ $desc := .Get "description" }}
+    {{ $class := .Get "class" }}
+
+    <div class="project-media">
+        <video class="{{$class}} project-video" src="{{$video.RelPermalink}}" loop muted playsinline autoplay></video>
+    </div>
+    {{ with $desc }}
+        <div class="d-flex justify-content-center">
+            <div class="project-video-desc-caption p-1">
+                {{ . | markdownify }}
+            </div>
+        </div>
+    {{ end }}
+{{ end }}

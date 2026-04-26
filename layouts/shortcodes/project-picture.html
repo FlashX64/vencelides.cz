@@ -1,0 +1,27 @@
+{{/*
+Usage:
+{{<project-picture
+  src="/media/example.jpg"
+  description="My image"
+  scale="0.5"
+  class="mypic"
+>}}
+*/}}
+
+{{ $desc := .Get "description" }}
+{{ $class := .Get "class" }}
+
+<div class="project-pic">
+  {{ partial "lazypicture" (dict
+  "src"   (.Get "src")
+  "scale" (.Get "scale")
+  "class" "{{ $class }} project-pic"
+  ) }}
+  {{ with $desc }}
+    <div class="d-flex justify-content-center">
+      <div class="project-pic-desc-caption p-1">
+        {{ . | markdownify }}
+      </div>
+    </div>
+  {{ end }}
+</div>

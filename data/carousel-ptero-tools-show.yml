@@ -1,0 +1,18 @@
+images: 
+  - image: /media/projects/ptero-tools/ptero-tools-show1.jpg
+    description: "MAT 49 weapon ported from Vietcong 2 to Vietcong 1, shown in Blender"
+  - image: /media/projects/ptero-tools/ptero-tools-show2.jpg
+    description: "MAT 49 weapon ported from Vietcong 2 to Vietcong 1, shown in-game"
+  - image: /media/projects/ptero-tools/ptero-tools-show3.jpg
+    description: "Custom first-person hand animation; player hands ported from Vietcong 2"
+  - image: /media/projects/ptero-tools/ptero-tools-show4.jpg
+    description: "Captain Boone ported from Vietcong 2 to Vietcong 1; player hands ported from Vietcong 2"
+  - image: /media/projects/ptero-tools/ptero-tools-show5.jpg
+    description: "Custom character used for in-game skeleton visualization (octahedral debug representation)"
+  - image: /media/projects/ptero-tools/ptero-tools-show6.jpg
+    description: "Tommy (_Mafia: The City of Lost Heaven_) ported into Vietcong 1"
+  - image: /media/projects/ptero-tools/ptero-tools-show7.jpg
+    description: "_CS:GO_ character ported into Vietcong 1"
+  - image: /media/projects/ptero-tools/ptero-tools-show8.jpg
+    description: "Customized animal 3D model (cow/buffalo)"
+    

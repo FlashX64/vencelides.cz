@@ -1,0 +1,9 @@
+images: 
+  - image: /media/projects/ls3d-tools/ls3d-tools1.jpg
+    description: "The `la_spitfire.4ds` 3D model imported into Blender"
+  - image: /media/projects/ls3d-tools/ls3d-tools2.jpg
+    description: "The `la_Jeepsas.4ds` 3D model imported into Blender"
+  - image: /media/projects/ls3d-tools/ls3d-tools3.jpg
+    description: "The Czech1 mission `scene.4ds` 3D model imported into Blender"
+  - image: /media/projects/ls3d-tools/ls3d-tools-suzanne.jpg
+    description: "The standard Suzanne test mesh from Blender, exported using the tool and imported into the LS3D engine"

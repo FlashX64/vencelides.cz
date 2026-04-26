@@ -1,0 +1,24 @@
+{{ $id := .Get "id" }}
+
+{{ $desc := .Get "description" }}
+
+{{- with $id := or (.Get "id") (.Get 0) -}}
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe
+      src="https://www.youtube.com/embed/{{ $id }}"
+      loading="lazy"
+      title="YouTube video"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+      referrerpolicy="strict-origin-when-cross-origin"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+      allowfullscreen>
+    </iframe>
+  </div>
+{{end}}
+{{ with $desc }}
+<div class="d-flex justify-content-center">
+    <div class="project-video-desc-caption p-1">
+        {{ . | markdownify }}
+    </div>
+</div>
+{{ end }}

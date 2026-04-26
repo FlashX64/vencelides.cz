@@ -1,0 +1,252 @@
+$carousel-desc-caption-height: 3.4rem;
+$carousel-desc-caption-padding: 0.2rem;
+$carousel-desc-top-margin: 0.4rem;
+$carousel-bottom-control-bottom-offset: 25px;
+$carousel-bottom-control-bottom-offset-with-caption: calc(
+  #{$carousel-desc-caption-height} + #{$carousel-desc-top-margin} +
+    #{$carousel-desc-caption-padding} +
+    #{$carousel-bottom-control-bottom-offset}
+);
+
+.carousel {
+  position: relative;
+  width: 100%;
+
+  &-viewport {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  &-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    cursor: grab;
+    user-select: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    touch-action: pan-y;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &.grabbing {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      scroll-behavior: auto;
+    }
+  }
+
+  &-slide {
+    aspect-ratio: 16 / 9;
+    flex: 0 0 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    user-select: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      // pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+  }
+
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* Override .section behavior from "_raditian.scss" */
+  ul {
+    padding: 0px 0px;
+
+    li {
+      padding: 0px 0px;
+
+      &::before {
+        content: normal;
+      }
+    }
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  ol {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      padding: 0 5px;
+
+      a {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 2px solid white;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      &.selected a {
+        background: white;
+      }
+    }
+  }
+
+  &-fullsize {
+    position: absolute;
+    right: 12px;
+    z-index: 11;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+
+    border: 0;
+    border-radius: 0.375rem;
+
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover,
+    &:focus {
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+    }
+  }
+
+  &-desc-caption {
+    height: $carousel-desc-caption-height;
+    margin-top: $carousel-desc-top-margin;
+    text-align: center;
+    font-size: 0.85rem;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; // 👈 number of lines
+    line-clamp: 3;
+
+    overflow: hidden;
+  }
+
+  .has-caption {
+    ol {
+      bottom: $carousel-bottom-control-bottom-offset-with-caption;
+    }
+
+    .carousel-fullsize {
+      bottom: $carousel-bottom-control-bottom-offset-with-caption;
+    }
+  }
+
+  .no-caption {
+    ol {
+      bottom: $carousel-bottom-control-bottom-offset;
+    }
+
+    .carousel-fullsize {
+      bottom: $carousel-bottom-control-bottom-offset;
+    }
+  }
+}
+
+.carousel-image-modal {
+  .carousel-modal-prev,
+  .carousel-modal-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .carousel-modal-prev {
+    left: 1rem;
+  }
+
+  .carousel-modal-next {
+    right: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: calc(100vh - 180px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* Avoid Bootstrap modals shifting content to the right when a modal opens */
+body.modal-open {
+  padding-right: inherit !important;
+  overflow: hidden !important;
+
+  header {
+    padding-right: inherit !important;
+  }
+
+  div {
+    overflow: hidden !important;
+  }
+}

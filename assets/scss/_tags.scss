@@ -1,0 +1,48 @@
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-badge {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  margin: 5px 0px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+[data-bs-theme="dark"] {
+  .tag-badge {
+    background: #2f2f2f;
+    color: #eee;
+
+    &:hover {
+      background: #444;
+    }
+  }
+}
+
+[data-bs-theme="light"] {
+  .tag-badge {
+    background: #f0f0f0;
+    color: #222;
+
+    &:hover {
+      background: #ddd;
+    }
+  }
+}
+
+a.tag-badge {
+  text-decoration: none;
+
+  &:hover {
+    color: inherit !important;
+  }
+}

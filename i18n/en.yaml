@@ -1,0 +1,47 @@
+## Header
+- id: "logo_text1"
+  translation: "Filip"
+
+- id: "logo_text2"
+  translation: "Vencelides"
+
+## Footer
+- id: "footer_notice"
+  translation: "&copy; Filip Vencelides. <br/> Powered by <a target='_blank' rel='noopener noreferrer' href='https://gohugo.io/' target='_blank'>Hugo</a> with a customized <a target='_blank' rel='noopener noreferrer' href='https://github.com/zetxek/adritian-free-hugo-theme' target='_blank'>Adritian</a> theme"
+
+- id: "language"
+  translation: "Language"
+
+## Homepage head title
+- id: "head_title"
+  translation: "Filip Vencelides | Software Engineer ⸱ Game Dev Enthusiast"
+
+- id: "head_description"
+  translation: "Game development student and 3D tooling developer based in Brno, with a decade of experience in game modding and a background in real-world 3D software development."
+
+## Homepage showcase
+- id: "showcase_title"
+  translation: ""
+
+- id: "showcase_subtitle"
+  translation: ""
+
+- id: "showcase_description"
+  translation: ""
+
+- id: "showcase_button"
+  translation: "Contact"
+
+## Homepage education
+- id: "education_title"
+  translation: "Education"
+
+## Homepage experience
+- id: "experience_title"
+  translation: "Experience"
+
+- id: "projects_title"
+  translation: "Projects"
+
+- id: "experience_description"
+  translation: ""

@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+@import "carousel";
+@import "tags";
+@import "variables";
+
+/* Prevent anchor scroll from hiding content under header */
+.skill-item {
+  scroll-margin-top: 72px;
+}
+
+// Prevent image sizing from breaking aspect ratio
+.picture-works {
+  height: inherit;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+
+  font-size: 0.85rem;
+
+  // All items (year, type, tags)
+  > * {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  // Separator
+  > *:not(:last-child)::after {
+    content: "•";
+    margin-left: 0.4rem;
+    opacity: 0.6;
+  }
+
+  .project-year {
+    opacity: 0.8;
+  }
+
+  .project-type {
+    font-weight: 500;
+  }
+}
+
+.experience.selected a .experience__title,
+.experience:hover a .experience__title,
+.experience:active a .experience__title,
+.experience a:hover .experience__title,
+.experience a:active .experience__title {
+  color: white !important;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+.section li a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-position: from-font;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  transition: all 0.5s;
+
+  &:hover {
+    color: $dark-primary;
+  }
+}
+
+.project-pic {
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &-desc-caption {
+    margin-top: 0.4rem;
+    text-align: left;
+    font-size: 0.85rem;
+  }
+}
+
+.project-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+
+  &-desc-caption {
+    margin-top: 0.4rem;
+    text-align: left;
+    font-size: 0.85rem;
+  }
+}
+
+/* header */
+.header .navbar-brand span:first-child {
+  margin-right: 0.2em !important;
+  color: var(--bs-navbar-brand-color);
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+.header .navbar-brand span:nth-child(2) {
+  font-weight: 900;
+  color: #ff4982 !important;
+}
+
+.project-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+
+  padding: 0.25rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  border-radius: 999px;
+
+  &::before {
+    content: "★";
+    font-size: 0.7rem;
+    line-height: 1;
+  }
+}

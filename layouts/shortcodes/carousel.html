@@ -1,0 +1,115 @@
+{{ $imagesPath := .Get "images" }}
+{{ $path := split $imagesPath "." }}
+{{ $images := .Site.Data }}
+{{ range $path }}
+  {{ $images = index $images . }}
+{{ end }}
+
+{{ $title := .Get "title" }}
+{{ $showDescription := .Get "show_description" }}
+
+{{ if not $title }}
+  {{ $title = .Page.Params.title }}
+{{ end }}
+
+{{ $carouselId := printf "carousel%d" .Ordinal }}
+{{ $modalId := printf "carousel-modal%d" .Ordinal }}
+{{ $modalImgId := printf "carousel-modal-img%d" .Ordinal }}
+{{ $modalDescId := printf "carousel-modal-desc%d" .Ordinal }}
+
+<div
+  id="{{ $carouselId }}"
+  class="carousel"
+  data-modal-id="{{ $modalId }}"
+  data-modal-image-id="{{ $modalImgId }}"
+  data-modal-desc-id="{{ $modalDescId }}"
+  duration="{{ .Get `duration` }}"
+>
+  <div class="carousel-viewport {{ if $showDescription }}has-caption{{ else }}no-caption{{ end }}">
+    <ul class="carousel-track">
+      {{ range $index, $slide := $images }}
+        <li id="c{{ $.Ordinal }}_slide{{ add $index 1 }}" class="carousel-slide">
+          {{ with resources.Get $slide.image }}
+            <img
+              src="{{ .RelPermalink }}"
+              alt="{{ $slide.alt | default "" }}"
+              title="{{ $slide.title | default "" }}"
+            >
+
+          {{ if $showDescription }}
+          <div class="d-flex justify-content-center">
+            <div class="carousel-desc-caption p-1">
+              {{ with $slide.description }}
+                {{ . | markdownify }}
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+
+            <button
+              type="button"
+              class="carousel-fullsize"
+              data-index="{{ $index }}"
+              data-fullsize="{{ .RelPermalink }}"
+              data-alt="{{ $slide.alt | default "" }}"
+              aria-label="View image full size"
+            >
+            ⛶
+            <template class="desc">
+              {{ $slide.description | markdownify }}
+            </template>
+            </button>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+
+    <ol>
+      {{ range $index, $_ := $images }}
+        <li><a href="#c{{ $.Ordinal }}_slide{{ add $index 1 }}"></a></li>
+      {{ end }}
+    </ol>
+
+    <div class="prev">&lsaquo;</div>
+    <div class="next">&rsaquo;</div>
+  </div>
+</div>
+
+<div id="{{ $modalId }}" class="modal fade carousel-image-modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">{{ $title }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-0 text-center">
+        <div
+          class="carousel-modal-prev"
+          aria-label="Previous image"
+        >
+        &lsaquo;
+        </div>
+        <img
+          id="{{ $modalImgId }}"
+          src=""
+          alt=""
+          class="img-fluid"
+        >
+        <div
+          class="carousel-modal-next"
+          aria-label="Next image"
+        >
+        &rsaquo;
+        </div>
+      </div>
+
+     <!-- Description -->
+      <div class="modal-footer border-0 justify-content-center">
+        <div id="{{ $modalDescId }}" class="text-center small">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

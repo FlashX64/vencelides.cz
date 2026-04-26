@@ -1,0 +1,13 @@
+{{ $skills := dict }}
+{{ $skillsPage := site.GetPage "/skills" }}
+
+{{ with $skillsPage }}
+  {{ range .Params.skill_categories }}
+    {{ range .skills }}
+      {{- $id := .id | default (.name | urlize) -}}
+      {{- $skills = merge $skills (dict $id (merge . (dict "id" $id))) -}}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ return $skills }}

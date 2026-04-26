@@ -1,0 +1,16 @@
+{{ $skills := partial "skills-map.html" . }}
+{{ $tags := .tags }}
+{{ if $tags }}
+  <div class="tag-list">
+    {{ range $tags }}
+    {{ $skill := index $skills . }}
+      {{ if $skill }}
+        <a class="tag-badge" href="/skills/#{{ $skill.id }}">
+          {{ $skill.name }}
+        </a>
+      {{ else }}
+        {{ warnf "Skill not found for item: %v" . }}
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}
