@@ -205,7 +205,7 @@ URL = "scss/custom.scss"
 disable = true
 
 [params.colorTheme.forced]
-theme = "light"
+theme = "dark"
 
 ## the following parameter will disable theme override in the footer
 #  [params.colorTheme.selector.disable]
