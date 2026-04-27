@@ -11,13 +11,13 @@ skill_categories:
         level: 95
         years: "8+"
         experience_description: ".NET, ASP.NET, OpenTK, Windows Forms, WPF"
-        general_description: "Preferred for quickly building functional applications with minimal effort and solid performance – file parsing/processing, web backends, simple 3D applications, and simple GUI. I also built my first 3D engine in C#."
+        general_description: "Preferred language. Used for building desktop apps, web backend services, and 3D graphics apps. Experience with async/await and memory-focused techniques (Span<T>, Memory<T>, stackalloc, unsafe). Built a 3D level editor with C#."
       - name: "C/C++"
         id: c-cpp
         level: 70
         years: "3+"
         experience_description: "OpenGL, ImGui, GLM, Vulkan"
-        general_description: "Preferred for low-level or performance-critical applications such as 3D graphics and rendering. Offers strong control and access to powerful libraries for solving complex problems. Experienced with modern C++ (C++20)."
+        general_description: "Used for performance-critical and graphics-oriented apps. Worked on real-time rendering and low-level components using OpenGL/Vulkan. Applied RAII, move semantics, and smart pointers; used templates, concepts and constexpr; implemented multithreaded components (threads, mutexes, atomics). Built a lightmap generator in C++."
       - name: "Python"
         id: python
         level: 70
@@ -42,8 +42,8 @@ skill_categories:
         id: opengl
         level: 80
         years: "5+"
-        experience_description: "ImGui"
-        general_description: "Used for developing custom 3D tools and visualization (level editor, lightmap generator), with additional experience from a university course focused on GPU rendering."
+        experience_description: "GLSL, ImGui"
+        general_description: "Used for developing custom 3D tools and visualization (level editor, lightmap generator), with additional experience from a university course focused on GPU rendering. Previously implemented e.g. deferred shading, shadow mapping, SSAO, and particles."
       - name: "Blender"
         id: blender
         level: 60
