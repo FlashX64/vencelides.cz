@@ -14,7 +14,7 @@ params:
     - blender
 ---
 
-A Blender addon adding full support for _Vietcong_ / _Vietcong 2_ (Ptero-Engine-II/ Ptero-Engine-III) 3D formats which enables creation of custom 3D assets for both games.
+A Blender addon adding full support for _Vietcong_ / _Vietcong 2_ (Ptero-Engine-II / Ptero-Engine-III) 3D formats which enables creation of custom 3D assets for both games.
 <br/>
 <br/>
 While official tools existed, they were limited to outdated versions of 3ds Max (7/8) and lacked support for advanced workflows such as character creation, skeletal animation, and vehicle assets. In addition, the dependency on licensed software and plugins incompatible with modern versions made them impractical to use.

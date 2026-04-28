@@ -25,7 +25,7 @@ Each secret room can be claimed by capturing a flag, and the mode tracks player 
 {{< carousel images="carousel-seek-mode.images" duration="5000" >}}
 
 <div class="d-flex justify-content-end gap-2">
-  <a target="_blank" rel="noopener noreferrer" href="https://github.com/FlashX64/blender-ls3d-tools" class="btn btn-primary">
+  <a target="_blank" rel="noopener noreferrer" href="https://github.com/FlashX64/vietcong-scripts" class="btn btn-primary">
     View on GitHub
   </a>
   <a target="_blank" rel="noopener noreferrer" href="https://vietcong1.eu/en/maps/#mapsList-filter[mode]=220" class="btn btn-primary">
