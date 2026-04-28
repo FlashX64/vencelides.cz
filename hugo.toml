@@ -168,6 +168,11 @@ name = "Projects"
 URL = "/projects"
 weight = 3
 
+[[languages.en.menus.footer]]
+name = "Skills"
+URL = "/skills"
+weight = 4
+
 # Plugins
 [params.plugins]
 
