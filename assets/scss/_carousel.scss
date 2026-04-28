@@ -1,7 +1,7 @@
 $carousel-desc-caption-height: 3.4rem;
-$carousel-desc-caption-padding: 0.2rem;
+$carousel-desc-caption-padding: 0.25rem;
 $carousel-desc-top-margin: 0.4rem;
-$carousel-bottom-control-bottom-offset: 25px;
+$carousel-bottom-control-bottom-offset: 5%;
 $carousel-bottom-control-bottom-offset-with-caption: calc(
   #{$carousel-desc-caption-height} + #{$carousel-desc-top-margin} +
     #{$carousel-desc-caption-padding} +
@@ -33,7 +33,7 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
     user-select: none;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    touch-action: pan-y;
+    touch-action: pan-x;
 
     &::-webkit-scrollbar {
       display: none;
@@ -62,7 +62,6 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
       height: 100%;
       display: block;
       object-fit: contain;
-      // pointer-events: none;
       user-select: none;
       -webkit-user-drag: none;
       -webkit-user-select: none;
@@ -85,6 +84,18 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
     color: white;
     cursor: pointer;
     user-select: none;
+  }
+
+  // Center within image container
+  .has-caption > .prev,
+  .has-caption > .next {
+    top: calc(
+      50% - 0.5 *
+        (
+          #{$carousel-desc-caption-height} + #{$carousel-desc-caption-padding} +
+            #{$carousel-desc-top-margin}
+        )
+    );
   }
 
   /* Override .section behavior from "_raditian.scss" */
@@ -124,8 +135,8 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
 
       a {
         display: block;
-        width: 10px;
-        height: 10px;
+        width: 14px;
+        height: 14px;
         border: 2px solid white;
         border-radius: 50%;
         background: rgba(0, 0, 0, 0.2);
@@ -176,7 +187,7 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
 
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; // 👈 number of lines
+    -webkit-line-clamp: 3;
     line-clamp: 3;
 
     overflow: hidden;
