@@ -7,8 +7,6 @@
 (() => {
   "use strict";
 
-  console.log("Dark mode toggle script loaded");
-
   const getStoredTheme = () => localStorage.getItem("theme");
   const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
 
