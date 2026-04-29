@@ -17,7 +17,7 @@ An example of a more advanced singleplayer mission script I wrote for Vietcong.
 This mission was created as part of the fan-made add-on _Hell in the Jungle_, in collaboration with modder Melber, the main author of the add-on.
 <br/>
 <br/>
-The level is based on the original _Hanging Bridge_ level from th _Fist Alpha_ expansion pack, but the mission progression is original and played from the perspective of Vietcong soldiers. I implemented the entire mission script, including dialogue sequences and gameplay logic, while Melber was responsible for the level itself.
+The level is based on the original _Hanging Bridge_ level from the _Fist Alpha_ expansion pack, but the mission progression is original and played from the perspective of Vietcong soldiers. I implemented the entire mission script, including dialogue sequences and gameplay logic, while Melber was responsible for the level itself.
 
 <!--more-->
 {{< carousel images="carousel-hell-in-the-jungle.images" duration="5000" >}}
