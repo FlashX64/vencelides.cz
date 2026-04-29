@@ -65,6 +65,14 @@ target = "assets/js/vendor/bootstrap.bundle.min.js"
 source = "node_modules/bootstrap-print-css/css/bootstrap-print.css"
 target = "assets/css/bootstrap-print.css"
 
+## Search & sanitization
+[[module.mounts]]
+source = "node_modules/fuse.js/dist/fuse.min.js"
+target = "static/js/fuse.min.js"
+
+[[module.mounts]]
+source = "node_modules/dompurify/dist/purify.min.js"
+target = "static/js/purify.min.js"
 
 [params]
 title = 'Filip Vencelides | Software Engineer ⸱ Game Dev Enthusiast'
