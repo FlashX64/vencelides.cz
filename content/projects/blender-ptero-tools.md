@@ -48,8 +48,8 @@ The tools were developed for personal use and were never publicly released.
 
 ## Showcase
 {{< carousel images="carousel-ptero-tools-show.images" show_description="true" duration="5000" >}}
-{{<project-video src="media/projects/ptero-tools/char-anim.mp4" description="A character walk animation imported into Blender" >}}
-{{<project-video src="media/projects/ptero-tools/weapon-anim.mp4" description="A first-person hand animation imported into Blender (slowed down)">}}
+{{<project-video src="media/projects/ptero-tools/char-anim" description="A character walk animation imported into Blender" >}}
+{{<project-video src="media/projects/ptero-tools/weapon-anim" description="A first-person hand animation imported into Blender (slowed down)">}}
 
 ## Tech stack
 

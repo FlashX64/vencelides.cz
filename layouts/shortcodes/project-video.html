@@ -1,18 +1,54 @@
 {{ $src := .Get "src" }}
 
-{{ $video := resources.Get $src }}
-{{ if $video }}
-    {{ $desc := .Get "description" }}
-    {{ $class := .Get "class" }}
+{{ $video480 := resources.Get (printf "%s-480p.mp4" $src) }}
+{{ $video720 := resources.Get (printf "%s-720p.mp4" $src) }}
+{{ $video1080 := resources.Get (printf "%s-1080p.mp4" $src) }}
 
-    <div class="project-media">
-        <video class="{{$class}} project-video" src="{{$video.RelPermalink}}" loop muted playsinline autoplay></video>
-    </div>
-    {{ with $desc }}
-        <div class="d-flex justify-content-center">
-            <div class="project-video-desc-caption p-1">
-                {{ . | markdownify }}
-            </div>
-        </div>
+{{ $desc := .Get "description" }}
+{{ $class := .Get "class" }}
+
+<div class="project-media">
+    <video
+    class="{{ $class }} project-video"
+    loop
+    muted
+    playsinline
+    autoplay
+    preload="metadata">
+
+    <!-- Reduced data -->
+    {{ with $video480 }}
+    <source
+        src="{{ .RelPermalink }}"
+        media="(prefers-reduced-data: reduce)"
+        type="video/mp4">
     {{ end }}
+
+    <!-- Breakpoints -->
+    {{ with $video480 }}
+    <source
+        src="{{ .RelPermalink }}"
+        media="(max-width: 767.98px)"
+        type="video/mp4">
+    {{ end }}
+
+    {{ with $video720 }}
+    <source
+        src="{{ .RelPermalink }}"
+        media="(max-width: 1199.98px)"
+        type="video/mp4">
+    {{ end }}
+
+    {{ with $video1080 }}
+    <source
+        src="{{ .RelPermalink }}"
+        type="video/mp4">
+    {{ end }}
+</div>
+{{ with $desc }}
+    <div class="d-flex justify-content-center">
+        <div class="project-video-desc-caption p-1">
+            {{ . | markdownify }}
+        </div>
+    </div>
 {{ end }}

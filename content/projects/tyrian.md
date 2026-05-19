@@ -32,4 +32,4 @@ The game features three levels:
 The game was developed for both desktop and mobile platforms.
 
 
-{{<project-video src="media/projects/tyrian/tyrian.mp4" description="Gameplay footage from the final game">}}
+{{<project-video src="media/projects/tyrian/tyrian" description="Gameplay footage from the final game">}}
