@@ -16,7 +16,7 @@ An original map with a self-explanatory name, directly inspired by my own dreams
 It's a smaller map, largely enveloped in darkness, creating a playful and surreal environment. In retrospect, however, some of these design choices negatively impact gameplay comfort in certain aspects.
 <br/>
 <br/>
-The map was primarily designed for <abbr title="Deathmatch">DM</abbr>.
+The map was primarily designed for {{< vc-mode "DM" >}}.
 <br/>
 <br/>
 <!--more-->

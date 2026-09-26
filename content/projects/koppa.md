@@ -18,7 +18,7 @@ This is my latest original map and likely my most successful one, having been re
 
 The map is set in a Vietcong's jungle encampment enclosed by rocky cliffs. It offers limited traversal across the surrounding rocks, as well as a small cave location. Despite the green jungle setting, I aimed to maintain strong readability and clear navigation.
 
-The map is relatively compact, reflecting the declining player base over time, and was primarily designed for <abbr title="Deathmatch">DM</abbr> and <abbr title="Cooperative">COOP</abbr> modes. In practice, however, it found success mainly as a COOP experience and remains part of the regular map rotation on the vietcong.tk server.
+The map is relatively compact, reflecting the declining player base over time, and was primarily designed for {{< vc-mode "DM" >}} and {{< vc-mode "COOP" >}} modes. In practice, however, it found success mainly as a {{< vc-mode "COOP" >}} experience and remains part of the regular map rotation on the vietcong.tk server.
 
 <!--more-->
 

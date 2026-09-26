@@ -16,7 +16,7 @@ This map features a distinctive visual style, achieved through edge highlighting
 The core layout is not original, largely based on and partially adapted from the unofficial _Complex_ map from Vietcong 2. However, the placement of obstacles and the overall artistic direction are my own.
 <br/>
 <br/>
-The map is primarily designed for <abbr title="Capture the Flag">CTF</abbr> and <abbr title="Assault Team Game">ATG</abbr> modes.
+The map is primarily designed for {{< vc-mode "CTF" >}} and {{< vc-mode "ATG" >}} modes.
 <!--more-->
 {{< carousel images="carousel-myrsex.images" duration="5000" >}}
 

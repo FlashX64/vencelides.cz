@@ -13,7 +13,7 @@ params:
 This map is essentially a port of the well-known _Depot_ map from Vietcong 2, so I don't take much creative credit for its design. My main contribution was adapting it to Vietcong 1, including thoughtful placement of the available weapons.
 <br/>
 <br/>
-At the time of release, the map was quite popular and offered fast-paced gameplay (especially in <abbr title="Deathmatch">DM</abbr>), keeping players constantly engaged. There are several ports of this map for Vietcong 1, but I believe this version is the most faithful and best preserves the original gameplay pacing.
+At the time of release, the map was quite popular and offered fast-paced gameplay (especially in {{< vc-mode "DM" >}}), keeping players constantly engaged. There are several ports of this map for Vietcong 1, but I believe this version is the most faithful and best preserves the original gameplay pacing.
 <br/>
 <br/>
 It's a map I enjoy playing to this day.

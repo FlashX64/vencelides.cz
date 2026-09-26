@@ -13,7 +13,7 @@ params:
 The first map I fully modeled myself – _Enemy Territory_. It is set in a remote facility complex with an underground garage and surrounding passages.
 <br/>
 <br/>
-The map aims to capture the atmosphere of New Mexico, evoking a sense of isolation and abandonment. It was primarily designed for <abbr title="Deathmatch">DM</abbr> and <abbr title="Cooperative">COOP</abbr> modes.
+The map aims to capture the atmosphere of New Mexico, evoking a sense of isolation and abandonment. It was primarily designed for {{< vc-mode "DM" >}} and {{< vc-mode "COOP" >}} modes.
 
 <!--more-->
 

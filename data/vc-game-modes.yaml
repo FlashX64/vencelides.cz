@@ -1,0 +1,10 @@
+CTF:
+  name: Capture the Flag
+DM:
+  name: Deathmatch
+ATG:
+  name: Assault Team Game
+COOP:
+  name: Cooperative
+VC_COOP:
+  name: Vietcong Cooperative

@@ -19,7 +19,7 @@ For me, the project is mainly a nostalgic milestone. During its development, I m
 Their support motivated me to set up my first public server, where I released the map. This experience taught me the importance of playtesting before release, as well as continuing to update a project afterward when friction points appear.
 <br/>
 <br/>
-The map was primarily designed for <abbr title="Deathmatch">DM</abbr> mode.
+The map was primarily designed for {{< vc-mode "DM" >}} mode.
 <br/>
 <br/>
 As of 2026, the map can still occasionally be spotted on some active servers.

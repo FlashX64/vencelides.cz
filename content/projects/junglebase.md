@@ -13,7 +13,7 @@ params:
 This map is a port of the _Airstrip_ map from the _Counter-Strike_ series. While it doesn't introduce new level design elements, the focus was on adapting the visuals to fit a US basecamp near the jungle and align with Vietcong's original maps aesthetic.
 <br/>
 <br/>
-The map was primarily designed for <abbr title="Deathmatch">DM</abbr>, <abbr title="Capture the Flag">CTF</abbr> and <abbr title="Vietcong Cooperative">VC_COOP</abbr> modes.
+The map was primarily designed for {{< vc-mode "DM" >}}, {{< vc-mode "CTF" >}} and {{< vc-mode "VC_COOP" >}} modes.
 
 <!--more-->
 

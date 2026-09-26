@@ -1,0 +1,7 @@
+{{- $id := .Get 0 -}}
+{{- $modes := index .Site.Data "vc-game-modes" -}}
+{{- with index $modes $id -}}
+  <abbr title="{{ .name }}">{{ $id }}</abbr>
+{{- else -}}
+  {{- errorf "Unknown game mode %q at %s; add its definition to data/vc-game-modes.yaml" $id .Position -}}
+{{- end -}}
