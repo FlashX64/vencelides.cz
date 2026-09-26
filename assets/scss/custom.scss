@@ -161,6 +161,21 @@ a.btn {
   content: none;
 }
 
+// Show the full current-page title instead of the fixed-width ellipsis
+.breadcrumbs .breadcrumb-item[aria-current="page"] {
+  min-width: 0;
+  max-width: 100%;
+
+  .breadcrumb-text {
+    max-width: none;
+    min-width: 0;
+    white-space: normal;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+  }
+}
+
 // The theme resets input padding to zero horizontally, then restores only the
 // search field's left side
 #search-query {
