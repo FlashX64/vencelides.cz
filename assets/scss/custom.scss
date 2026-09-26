@@ -160,3 +160,41 @@ a.btn {
 .breadcrumbs .breadcrumb-item + .breadcrumb-item::before {
   content: none;
 }
+
+// The theme resets input padding to zero horizontally, then restores only the
+// search field's left side
+#search-query {
+  padding-inline: 1rem;
+}
+
+// Keep search-tag text readable instead of inheriting the general link hover color
+#search-results a.badge {
+  &:hover,
+  &:focus-visible {
+    color: #fff;
+    // Bootstrap's bg-primary utility sets its background with !important
+    background-color: #8f2547 !important;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--bs-body-color);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #search-results > .search-result-enter {
+    animation: search-results-enter 240ms ease-out;
+  }
+}
+
+@keyframes search-results-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

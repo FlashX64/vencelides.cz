@@ -54,7 +54,7 @@
               data-alt="{{ $slide.alt | default "" }}"
               aria-label="View image full size"
             >
-            ⛶
+            <span data-search-exclude aria-hidden="true">⛶</span>
             <template class="desc">
               {{ $slide.description | markdownify }}
             </template>
@@ -70,8 +70,8 @@
       {{ end }}
     </ol>
 
-    <div class="prev">&lsaquo;</div>
-    <div class="next">&rsaquo;</div>
+    <div class="prev"><span data-search-exclude aria-hidden="true">&lsaquo;</span></div>
+    <div class="next"><span data-search-exclude aria-hidden="true">&rsaquo;</span></div>
   </div>
 </div>
 
@@ -89,7 +89,7 @@
           class="carousel-modal-prev"
           aria-label="Previous image"
         >
-        &lsaquo;
+        <span data-search-exclude aria-hidden="true">&lsaquo;</span>
         </div>
         <img
           id="{{ $modalImgId }}"
@@ -101,7 +101,7 @@
           class="carousel-modal-next"
           aria-label="Next image"
         >
-        &rsaquo;
+        <span data-search-exclude aria-hidden="true">&rsaquo;</span>
         </div>
       </div>
 
