@@ -25,7 +25,7 @@
   data-modal-desc-id="{{ $modalDescId }}"
   duration="{{ .Get `duration` }}"
 >
-  <div class="carousel-viewport {{ if $showDescription }}has-caption{{ else }}no-caption{{ end }}">
+  <div class="carousel-viewport">
     <ul class="carousel-track">
       {{ range $index, $slide := $images }}
         <li id="c{{ $.Ordinal }}_slide{{ add $index 1 }}" class="carousel-slide">
@@ -35,16 +35,6 @@
               alt="{{ $slide.alt | default "" }}"
               title="{{ $slide.title | default "" }}"
             >
-
-          {{ if $showDescription }}
-          <div class="d-flex justify-content-center">
-            <div class="carousel-desc-caption p-1">
-              {{ with $slide.description }}
-                {{ . | markdownify }}
-              {{ end }}
-            </div>
-          </div>
-          {{ end }}
 
             <button
               type="button"
@@ -56,7 +46,7 @@
             >
             <span data-search-exclude aria-hidden="true">⛶</span>
             <template class="desc">
-              {{ $slide.description | markdownify }}
+              {{ partial "carousel-description.html" $slide }}
             </template>
             </button>
           {{ end }}
@@ -73,6 +63,16 @@
     <div class="prev"><span data-search-exclude aria-hidden="true">&lsaquo;</span></div>
     <div class="next"><span data-search-exclude aria-hidden="true">&rsaquo;</span></div>
   </div>
+  {{ if and $showDescription (gt (len $images) 0) }}
+  <div class="carousel-desc-caption">
+    {{ range $index, $slide := $images }}
+    <div class="carousel-caption-item{{ if eq $index 0 }} is-active{{ end }}"
+      {{ if ne $index 0 }}aria-hidden="true" inert{{ end }}>
+      {{ partial "carousel-description.html" $slide }}
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
 </div>
 
 <div id="{{ $modalId }}" class="modal fade carousel-image-modal" tabindex="-1" aria-hidden="true">

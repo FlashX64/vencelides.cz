@@ -1,0 +1,11 @@
+{{ with .description }}{{ . | markdownify }}{{ end }}
+{{ with .legend }}
+<div class="carousel-legend" role="list" aria-label="Color legend">
+  {{ range . }}
+  <span class="carousel-legend-item" role="listitem">
+    <span class="carousel-legend-swatch carousel-legend-swatch--{{ .color }}" aria-hidden="true"></span>
+    <span>{{ .label }}</span>
+  </span>
+  {{ end }}
+</div>
+{{ end }}

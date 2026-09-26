@@ -14,6 +14,18 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     const bullets = carousel.querySelectorAll("ol li");
     const slides = carousel.querySelectorAll("ul li");
+    const caption = carousel.querySelector(".carousel-desc-caption");
+    let captionIndex = -1;
+    const updateCaption = (index) => {
+      if (!caption || captionIndex === index) return;
+      captionIndex = index;
+      Array.from(caption.children).forEach((item, captionNumber) => {
+        const active = captionNumber === index;
+        item.classList.toggle("is-active", active);
+        item.setAttribute("aria-hidden", String(!active));
+        item.toggleAttribute("inert", !active);
+      });
+    };
     const nextarrow = carousel.querySelector(".next");
     const prevarrow = carousel.querySelector(".prev");
 
@@ -78,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ele.scrollLeft = 0;
     bullets[0].classList.add("selected");
     slides[0].classList.add("selected");
+    updateCaption(0);
     if (amountvisible > 1) {
       var removeels = carousel.querySelectorAll(
         "ol li:nth-last-child(-n + " + (amountvisible - 1) + ")",
@@ -94,10 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
       slides.forEach(function (slide) {
         slide.classList.remove("selected");
       });
-      const scrolllength =
-        carousel.querySelector("ul li:nth-child(2)").offsetLeft -
-        carousel.querySelector("ul li:nth-child(1)").offsetLeft;
-      const nthchild = Math.round(ele.scrollLeft / scrolllength + 1);
+      const nthchild = Math.min(slides.length, Math.max(1,
+        Math.round(ele.scrollLeft / ele.clientWidth) + 1));
+      updateCaption(nthchild - 1);
       carousel
         .querySelector("ol li:nth-child(" + nthchild + ")")
         .classList.add("selected");

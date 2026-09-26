@@ -4,7 +4,14 @@ images:
   - image: /media/projects/lightmapper/lm-charts.jpg
     description: "Visualization of surface-to-chart assignment within the lightmap atlas"
   - image: /media/projects/lightmapper/lm-density.jpg
-    description: "Texel density visualization, color-coded by texel-to-surface size ratio: <span style='background-color: blue; color: white; padding: 2px'>blue = insufficient</span>, <span style='background-color: green; color: white; padding: 2px'>green = optimal</span>, <span style='background-color: red; color: white; padding: 2px'>red = excessive</span>"
+    description: "Texel density visualization, color-coded by texel-to-surface size ratio:"
+    legend:
+      - color: blue
+        label: "Insufficient"
+      - color: green
+        label: "Optimal"
+      - color: red
+        label: "Excessive"
   - image: /media/projects/lightmapper/lm-noise.jpg
     description: "Progressively generated lightmap (without denoising)"
   - image: /media/projects/lightmapper/lm-denoise.jpg

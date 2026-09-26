@@ -1,27 +1,18 @@
-$carousel-desc-caption-height: 3.4rem;
-$carousel-desc-caption-padding: 0.25rem;
-$carousel-desc-top-margin: 0.4rem;
-$carousel-bottom-control-bottom-offset: 5%;
-$carousel-bottom-control-bottom-offset-with-caption: calc(
-  #{$carousel-desc-caption-height} + #{$carousel-desc-top-margin} +
-    #{$carousel-desc-caption-padding} +
-    #{$carousel-bottom-control-bottom-offset}
-);
-
 .carousel {
   position: relative;
   width: 100%;
 
-  &-viewport {
+  .carousel-viewport {
     position: relative;
     margin: 0 auto;
     overflow: hidden;
   }
 
-  &-track {
+  .carousel-track {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
     overflow-x: auto;
     overflow-y: hidden;
     margin: 0;
@@ -33,7 +24,7 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
     user-select: none;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    touch-action: pan-x;
+    touch-action: pan-x pan-y;
 
     &::-webkit-scrollbar {
       display: none;
@@ -46,10 +37,13 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
     }
   }
 
-  &-slide {
+  .carousel-slide {
+    position: relative;
     aspect-ratio: 16 / 9;
     flex: 0 0 100%;
     width: 100%;
+    height: 100%;
+    margin: 0;
 
     display: flex;
     align-items: center;
@@ -86,18 +80,6 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
     user-select: none;
   }
 
-  // Center within image container
-  .has-caption > .prev,
-  .has-caption > .next {
-    top: calc(
-      50% - 0.5 *
-        (
-          #{$carousel-desc-caption-height} + #{$carousel-desc-caption-padding} +
-            #{$carousel-desc-top-margin}
-        )
-    );
-  }
-
   /* Override .section behavior from "_raditian.scss" */
   ul {
     padding: 0px 0px;
@@ -120,6 +102,7 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
   }
 
   ol {
+    bottom: 5%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -148,7 +131,8 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
     }
   }
 
-  &-fullsize {
+  .carousel-fullsize {
+    bottom: 5%;
     position: absolute;
     right: 12px;
     z-index: 11;
@@ -179,42 +163,66 @@ $carousel-bottom-control-bottom-offset-with-caption: calc(
     }
   }
 
+  // Reserve space for the tallest caption, so switching slides does not move the content below
   &-desc-caption {
-    height: $carousel-desc-caption-height;
-    margin-top: $carousel-desc-top-margin;
+    display: grid;
+    margin-block: 0.6rem;
+    padding: 0.25rem;
     text-align: center;
     font-size: 0.85rem;
+    overflow-wrap: anywhere;
 
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-
-    overflow: hidden;
+    p:last-child { margin-bottom: 0; }
   }
 
-  .has-caption {
-    ol {
-      bottom: $carousel-bottom-control-bottom-offset-with-caption;
-    }
+  &-caption-item {
+    grid-area: 1 / 1;
+    min-width: 0;
+    visibility: hidden;
+    pointer-events: none;
 
-    .carousel-fullsize {
-      bottom: $carousel-bottom-control-bottom-offset-with-caption;
-    }
-  }
-
-  .no-caption {
-    ol {
-      bottom: $carousel-bottom-control-bottom-offset;
-    }
-
-    .carousel-fullsize {
-      bottom: $carousel-bottom-control-bottom-offset;
+    &.is-active {
+      visibility: visible;
+      pointer-events: auto;
     }
   }
 }
 
+.carousel-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.carousel-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 100%;
+  text-align: left;
+}
+
+.carousel-legend-swatch {
+  flex: 0 0 0.75rem;
+  height: 0.75rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+
+  &--blue { background: #2563eb; }
+  &--green { background: #16a34a; }
+  &--red { background: #dc2626; }
+}
+
 .carousel-image-modal {
+  // Long captions remain readable and scrollable even on small screens
+  .modal-footer {
+    max-height: 35vh;
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+
   .carousel-modal-prev,
   .carousel-modal-next {
     position: absolute;
@@ -257,7 +265,4 @@ body.modal-open {
     padding-right: inherit !important;
   }
 
-  div {
-    overflow: hidden !important;
-  }
 }
