@@ -154,3 +154,9 @@ a.btn {
   display: inline-flex;
   align-items: center;
 }
+
+// The theme already adds a › separator with ::after. Hide Bootstrap's extra
+// ::before slash.
+.breadcrumbs .breadcrumb-item + .breadcrumb-item::before {
+  content: none;
+}
