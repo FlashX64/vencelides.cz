@@ -2,6 +2,9 @@ baseURL = "https://www.vencelides.cz/"
 title = "Filip Vencelides | Software Engineer ⸱ Game Dev Enthusiast"
 languageCode = "en-us"
 
+# Keep project tag metadata, but do not publish category/tag indexes or term pages
+disableKinds = ["taxonomy", "term"]
+
 # Exclude footer section from generating list pages (index.html and index.xml)
 [outputs]
   page = ["HTML"]
