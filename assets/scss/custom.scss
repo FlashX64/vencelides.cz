@@ -4,6 +4,30 @@
 @import "tags";
 @import "variables";
 
+.abbreviation-trigger {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  cursor: help;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.15em;
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  abbr {
+    text-decoration: none;
+    cursor: inherit;
+  }
+}
+
 /* Prevent anchor scroll from hiding content under header */
 .skill-item {
   scroll-margin-top: 72px;

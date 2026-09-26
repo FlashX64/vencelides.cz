@@ -30,6 +30,10 @@
 
 {{- $bootstrapJs := resources.Get "js/vendor/bootstrap.bundle.min.js" | fingerprint | resources.Copy "/assets/js/vendor/bootstrap.bundle.min.js" }}
 <script defer src="{{ $bootstrapJs.RelPermalink }}"></script>
+{{ with resources.Get "js/abbreviations.js" }}
+  {{ $js := . | resources.Minify | resources.Fingerprint }}
+  <script defer src="{{ $js.RelPermalink }}"></script>
+{{ end }}
 
 
 <!-- vercel insights -->
