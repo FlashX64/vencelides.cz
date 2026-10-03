@@ -120,6 +120,11 @@ a.btn {
 }
 
 /* header */
+// The theme only draws the navigation divider in dark mode
+[data-bs-theme="light"] .header .bd-navbar {
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
 .header.header--sticky-triggered {
   // Remove the theme's extra space below the navigation border
   padding-bottom: 0;
