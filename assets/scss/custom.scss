@@ -120,6 +120,24 @@ a.btn {
 }
 
 /* header */
+.header.header--sticky-triggered {
+  // Remove the theme's extra space below the navigation border
+  padding-bottom: 0;
+}
+
+// Keep the theme's solid background when backdrop blur is unavailable
+@supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+  .header.header--sticky-triggered {
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  [data-bs-theme="dark"] .header.header--sticky-triggered {
+    background-color: rgba(24, 24, 24, 0.7);
+  }
+}
+
 .header .navbar-brand span:first-child {
   margin-right: 0.2em !important;
   color: var(--bs-navbar-brand-color);
