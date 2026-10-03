@@ -1,3 +1,19 @@
+{{ if .IsHome }}
+  <template id="home-intro-template">
+  <div id="home-intro" aria-hidden="true">
+    <div class="home-intro-card">
+      <div class="home-intro-face home-intro-name">
+        <span>FILIP VENCELIDES</span>
+        <small class="home-intro-nickname">FlashX</small>
+      </div>
+      <div class="home-intro-face home-intro-crane">
+        {{ with resources.Get "animations/crane.svg" }}{{ .Content | safeHTML }}{{ end }}
+      </div>
+    </div>
+  </div>
+  </template>
+{{ end }}
+
 <!-- Optimized lazy loading initialization -->
 <script>
   window.addEventListener("load", function() {

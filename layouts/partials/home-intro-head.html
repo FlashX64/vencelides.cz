@@ -1,0 +1,85 @@
+{{ if .IsHome }}
+  {{ $timing := site.Data.home_intro }}
+  <style>
+    :root {
+      --intro-crane-duration: {{ $timing.crane }}ms;
+      --intro-exit-delay: {{ $timing.hold }}ms;
+      --intro-fade-duration: {{ $timing.fade }}ms;
+    }
+    #home-intro {
+      display: none;
+      --intro-background: #fff;
+      --intro-ink: #000;
+      --intro-spark: #26263f;
+    }
+    [data-bs-theme="dark"] #home-intro {
+      --intro-background: #181818;
+      --intro-ink: #fff;
+      --intro-spark: #fff;
+    }
+    html.home-intro-pending { overflow: hidden; }
+    /* Hide page content until the intro ends */
+    .home-intro-pending body > :not(#home-intro) { visibility: hidden; }
+    .home-intro-pending #home-intro {
+      display: grid; place-items: center; position: fixed; inset: 0;
+      z-index: 10000; background: var(--intro-background);
+    }
+    #home-intro .home-intro-card {
+      display: grid; place-items: center; width: min(90vw, 520px);
+      height: auto; gap: 16px; opacity: 0;
+    }
+    #home-intro .home-intro-name {
+      color: var(--intro-ink); font-family: inherit;
+      font-size: clamp(18px, 4.5vw, 30px); font-weight: 700;
+      line-height: 1.4; letter-spacing: .06em;
+    }
+    #home-intro .home-intro-nickname {
+      display: block; margin-top: 8px; text-align: center;
+      font-family: inherit;
+      font-size: .6em; font-weight: 400; letter-spacing: .12em;
+    }
+    #home-intro .home-intro-name span {
+      display: block; width: max-content; white-space: nowrap;
+    }
+    /* Show the name below the crane and reveal both in one fade */
+    #home-intro .home-intro-crane { grid-area: 1 / 1; }
+    #home-intro .home-intro-name { grid-area: 2 / 1; }
+    .home-intro-presenting #home-intro .home-intro-card {
+      animation: home-intro-appear 350ms ease-out both;
+    }
+    @keyframes home-intro-appear { from { opacity: 0; } to { opacity: 1; } }
+    #home-intro svg { width: min(65vw, 320px); height: auto; }
+    #home-intro .crane {
+      --crane-color: var(--intro-ink);
+      --crane-background: var(--intro-background);
+      --crane-spark: var(--intro-spark);
+      --crane-duration: var(--intro-crane-duration);
+    }
+    #home-intro .motion { animation-play-state: paused; }
+    .home-intro-playing #home-intro .motion { animation-play-state: running; }
+    /* Reveal the page underneath while the intro fades out */
+    .home-intro-exiting body > :not(#home-intro) { visibility: visible; }
+    .home-intro-exiting #home-intro {
+      animation: home-intro-fade var(--intro-fade-duration) ease-in-out var(--intro-exit-delay) both;
+    }
+    @keyframes home-intro-fade {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html.home-intro-pending { overflow: auto; }
+      .home-intro-pending body > :not(#home-intro) { visibility: visible; }
+      .home-intro-pending #home-intro { display: none; }
+    }
+  </style>
+  {{ if hugo.IsDevelopment }}
+    {{ with resources.Get "js/home-intro-debug.js" }}
+      <script>{{ .Content | safeJS }}</script>
+    {{ end }}
+  {{ end }}
+  {{ with resources.Get "js/home-intro.js" }}
+    {{/* Run before the body is painted to avoid flashing the homepage first */}}
+    <script>{{ .Content | safeJS }}</script>
+  {{ end }}
+{{ end }}
+

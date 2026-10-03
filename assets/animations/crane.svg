@@ -1,0 +1,362 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="crane" viewBox="0 0 121.42243 121.42243" role="img" aria-label="FlashX logo">
+  <style>
+.crane { --crane-duration: 4s; --crane-repeat: 1; }
+.crane .ink { fill: var(--crane-color, #000); }
+.crane .motion { animation-duration: var(--crane-duration); animation-iteration-count: var(--crane-repeat); animation-fill-mode: both; animation-timing-function: cubic-bezier(.4,0,.2,1); }
+.crane .flight { animation-name: crane-flight; }
+.crane .wing-left { animation-name: crane-left; }
+.crane .wing-right { animation-name: crane-right; }
+.crane .head { animation-name: crane-head; }
+.crane .cover { opacity: 0; animation-name: crane-reveal; }
+
+.crane .cooling { fill: var(--crane-background, transparent); opacity: 0; animation-name: crane-warmth; animation-timing-function: linear; }
+@keyframes crane-warmth {
+  0.000000%, 48.275862% { opacity: 0; fill: var(--crane-background, transparent); }
+  50.470219%, 52.664577% { opacity: 1; fill: var(--crane-background, transparent); }
+  53.981191%, 55.078370% { opacity: 1; fill: color-mix(in srgb, var(--crane-background, transparent) 73.275862%, var(--crane-spark, white) 45%); }
+  57.053292%, 59.247649% { opacity: 1; fill: var(--crane-background, transparent); }
+  60.344828%, 61.442006% { opacity: 1; fill: color-mix(in srgb, var(--crane-background, transparent) 79.310345%, var(--crane-spark, white) 38%); }
+  63.197492%, 65.830721% { opacity: 1; fill: var(--crane-background, transparent); }
+  66.927900%, 68.025078% { opacity: 1; fill: color-mix(in srgb, var(--crane-background, transparent) 86.206897%, var(--crane-spark, white) 30%); }
+  72.413793%, 99.991379% { opacity: 1; fill: var(--crane-background, transparent); }
+  100.000000% { opacity: 0; fill: var(--crane-background, transparent); }
+}
+
+.crane .fragment { fill: none; stroke: color-mix(in srgb, var(--crane-background, transparent) 35%, var(--crane-spark, white) 65%); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: miter; stroke-dasharray: .22 2; stroke-dashoffset: .22; opacity: 0; animation-name: crane-seam; animation-timing-function: linear; }
+.crane .fragment-tip { animation-name: crane-seam-branch; }
+.crane .burn-path { fill: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-dasharray: 1; stroke-dashoffset: 1; }
+
+.crane .burn-cut { stroke: #000; stroke-width: 5; animation-name: crane-cut; animation-timing-function: linear; }
+.crane .branch.burn-cut { animation-name: crane-cut-branch; }
+
+@keyframes crane-left {
+  0.000000%, 4.490778%, 48.275862%, 100.000000% { transform: skewY(0deg) scaleX(1); }
+  11.226945%, 30.312751% { transform: skewY(27deg) scaleX(.57); }
+  20.208500%, 39.294306% { transform: skewY(-10deg) scaleX(.96); }
+}
+@keyframes crane-right {
+  0.000000%, 4.490778%, 48.275862%, 100.000000% { transform: skewY(0deg) scaleX(1); }
+  11.226945%, 30.312751% { transform: skewY(-27deg) scaleX(.57); }
+  20.208500%, 39.294306% { transform: skewY(10deg) scaleX(.96); }
+}
+@keyframes crane-flight {
+  0.000000%, 4.490778%, 48.275862%, 100.000000% { transform: translateY(0); }
+  11.226945%, 30.312751% { transform: translateY(1.5px); }
+  20.208500%, 39.294306% { transform: translateY(-3px); }
+}
+@keyframes crane-head {
+  0.000000%, 4.490778%, 48.275862%, 100.000000% { transform: rotate(0deg); }
+  11.226945%, 30.312751% { transform: rotate(3deg); }
+  20.208500%, 39.294306% { transform: rotate(-2deg); }
+}
+
+@keyframes crane-reveal { 0.000000%, 99.991379% { opacity: 1; } 100.000000% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .crane .motion { animation: none; }
+}
+@keyframes crane-cut {
+0.000000%, 72.413793% { stroke-dashoffset: 1; stroke-width: 5; }
+72.844828% { stroke-dashoffset: 0.999457; stroke-width: 10; }
+73.275862% { stroke-dashoffset: 0.997830; stroke-width: 10; }
+73.706897% { stroke-dashoffset: 0.995117; stroke-width: 10; }
+74.137931% { stroke-dashoffset: 0.991319; stroke-width: 10; }
+74.568966% { stroke-dashoffset: 0.986437; stroke-width: 10; }
+75.000000% { stroke-dashoffset: 0.980469; stroke-width: 10; }
+75.431034% { stroke-dashoffset: 0.973416; stroke-width: 10; }
+75.862069% { stroke-dashoffset: 0.965278; stroke-width: 10; }
+76.293103% { stroke-dashoffset: 0.956055; stroke-width: 10; }
+76.724138% { stroke-dashoffset: 0.945747; stroke-width: 10; }
+77.155172% { stroke-dashoffset: 0.934353; stroke-width: 10; }
+77.586207% { stroke-dashoffset: 0.921875; stroke-width: 10; }
+78.017241% { stroke-dashoffset: 0.908312; stroke-width: 10; }
+78.448276% { stroke-dashoffset: 0.893663; stroke-width: 10; }
+78.879310% { stroke-dashoffset: 0.877930; stroke-width: 10; }
+79.310345% { stroke-dashoffset: 0.861111; stroke-width: 10; }
+79.741379% { stroke-dashoffset: 0.843207; stroke-width: 10; }
+80.172414% { stroke-dashoffset: 0.824219; stroke-width: 10; }
+80.603448% { stroke-dashoffset: 0.804145; stroke-width: 10; }
+81.034483% { stroke-dashoffset: 0.782986; stroke-width: 10; }
+81.465517% { stroke-dashoffset: 0.760742; stroke-width: 10; }
+81.896552% { stroke-dashoffset: 0.737413; stroke-width: 10; }
+82.327586% { stroke-dashoffset: 0.712999; stroke-width: 10; }
+82.758621% { stroke-dashoffset: 0.687500; stroke-width: 10; }
+83.189655% { stroke-dashoffset: 0.660916; stroke-width: 10; }
+83.620690% { stroke-dashoffset: 0.633247; stroke-width: 10; }
+84.051724% { stroke-dashoffset: 0.604492; stroke-width: 10; }
+84.482759% { stroke-dashoffset: 0.574653; stroke-width: 10; }
+84.913793% { stroke-dashoffset: 0.543728; stroke-width: 10; }
+85.344828% { stroke-dashoffset: 0.511719; stroke-width: 10; }
+85.775862% { stroke-dashoffset: 0.478624; stroke-width: 10; }
+86.206897% { stroke-dashoffset: 0.444444; stroke-width: 10; }
+86.637931% { stroke-dashoffset: 0.409180; stroke-width: 10; }
+87.068966% { stroke-dashoffset: 0.372830; stroke-width: 10; }
+87.500000% { stroke-dashoffset: 0.335395; stroke-width: 10; }
+87.931034% { stroke-dashoffset: 0.296875; stroke-width: 10; }
+88.362069% { stroke-dashoffset: 0.257270; stroke-width: 10; }
+88.793103% { stroke-dashoffset: 0.216580; stroke-width: 10; }
+89.224138% { stroke-dashoffset: 0.174805; stroke-width: 10; }
+89.655172% { stroke-dashoffset: 0.131944; stroke-width: 10; }
+90.086207% { stroke-dashoffset: 0.087999; stroke-width: 10; }
+90.517241% { stroke-dashoffset: 0.042969; stroke-width: 10; }
+90.948276% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+91.379310% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+91.810345% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+92.241379% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+92.672414% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+93.103448% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+93.534483% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+93.965517% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+94.396552% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+94.827586% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+95.258621% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+95.689655% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+96.120690% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+96.551724% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+96.982759% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+97.413793% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+97.844828% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+98.275862% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+98.706897% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+99.137931% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+99.568966% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+100.000000% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+100.000000% { stroke-dashoffset: 0; stroke-width: 10; } }
+@keyframes crane-seam {
+0.000000%, 72.413793% { opacity: 0; stroke-dashoffset: .22; }
+72.844828% { opacity: 0.013563; stroke-dashoffset: 0.219457; }
+73.275862% { opacity: 0.054253; stroke-dashoffset: 0.217830; }
+73.706897% { opacity: 0.122070; stroke-dashoffset: 0.215117; }
+74.137931% { opacity: 0.217014; stroke-dashoffset: 0.211319; }
+74.568966% { opacity: 0.339084; stroke-dashoffset: 0.206437; }
+75.000000% { opacity: 0.488281; stroke-dashoffset: 0.200469; }
+75.431034% { opacity: 0.664605; stroke-dashoffset: 0.193416; }
+75.862069% { opacity: 0.868056; stroke-dashoffset: 0.185278; }
+76.293103% { opacity: 1.000000; stroke-dashoffset: 0.176055; }
+76.724138% { opacity: 1.000000; stroke-dashoffset: 0.165747; }
+77.155172% { opacity: 1.000000; stroke-dashoffset: 0.154353; }
+77.586207% { opacity: 1.000000; stroke-dashoffset: 0.141875; }
+78.017241% { opacity: 1.000000; stroke-dashoffset: 0.128312; }
+78.448276% { opacity: 1.000000; stroke-dashoffset: 0.113663; }
+78.879310% { opacity: 1.000000; stroke-dashoffset: 0.097930; }
+79.310345% { opacity: 1.000000; stroke-dashoffset: 0.081111; }
+79.741379% { opacity: 1.000000; stroke-dashoffset: 0.063207; }
+80.172414% { opacity: 1.000000; stroke-dashoffset: 0.044219; }
+80.603448% { opacity: 1.000000; stroke-dashoffset: 0.024145; }
+81.034483% { opacity: 1.000000; stroke-dashoffset: 0.002986; }
+81.465517% { opacity: 1.000000; stroke-dashoffset: -0.019258; }
+81.896552% { opacity: 1.000000; stroke-dashoffset: -0.042587; }
+82.327586% { opacity: 1.000000; stroke-dashoffset: -0.067001; }
+82.758621% { opacity: 1.000000; stroke-dashoffset: -0.092500; }
+83.189655% { opacity: 1.000000; stroke-dashoffset: -0.119084; }
+83.620690% { opacity: 1.000000; stroke-dashoffset: -0.146753; }
+84.051724% { opacity: 1.000000; stroke-dashoffset: -0.175508; }
+84.482759% { opacity: 1.000000; stroke-dashoffset: -0.205347; }
+84.913793% { opacity: 1.000000; stroke-dashoffset: -0.236272; }
+85.344828% { opacity: 1.000000; stroke-dashoffset: -0.268281; }
+85.775862% { opacity: 1.000000; stroke-dashoffset: -0.301376; }
+86.206897% { opacity: 1.000000; stroke-dashoffset: -0.335556; }
+86.637931% { opacity: 1.000000; stroke-dashoffset: -0.370820; }
+87.068966% { opacity: 1.000000; stroke-dashoffset: -0.407170; }
+87.500000% { opacity: 1.000000; stroke-dashoffset: -0.444605; }
+87.931034% { opacity: 1.000000; stroke-dashoffset: -0.483125; }
+88.362069% { opacity: 1.000000; stroke-dashoffset: -0.522730; }
+88.793103% { opacity: 1.000000; stroke-dashoffset: -0.563420; }
+89.224138% { opacity: 1.000000; stroke-dashoffset: -0.605195; }
+89.655172% { opacity: 1.000000; stroke-dashoffset: -0.648056; }
+90.086207% { opacity: 1.000000; stroke-dashoffset: -0.692001; }
+90.517241% { opacity: 1.000000; stroke-dashoffset: -0.737031; }
+90.948276% { opacity: 0.985697; stroke-dashoffset: -0.783147; }
+91.379310% { opacity: 0.771149; stroke-dashoffset: -0.830347; }
+91.810345% { opacity: 0.551669; stroke-dashoffset: -0.878633; }
+92.241379% { opacity: 0.327257; stroke-dashoffset: -0.928003; }
+92.672414% { opacity: 0.097913; stroke-dashoffset: -0.978459; }
+93.103448% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+93.534483% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+93.965517% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+94.396552% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+94.827586% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+95.258621% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+95.689655% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+96.120690% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+96.551724% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+96.982759% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+97.413793% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+97.844828% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+98.275862% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+98.706897% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+99.137931% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+99.568966% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+100.000000% { opacity: 0.000000; stroke-dashoffset: -1.000000; }
+100.000000% { opacity: 0; stroke-dashoffset: -1; } }
+@keyframes crane-cut-branch {
+0.000000%, 72.413793% { stroke-dashoffset: 1; stroke-width: 5; }
+72.844828% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+73.275862% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+73.706897% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+74.137931% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+74.568966% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+75.000000% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+75.431034% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+75.862069% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+76.293103% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+76.724138% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+77.155172% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+77.586207% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+78.017241% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+78.448276% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+78.879310% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+79.310345% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+79.741379% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+80.172414% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+80.603448% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+81.034483% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+81.465517% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+81.896552% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+82.327586% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+82.758621% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+83.189655% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+83.620690% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+84.051724% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+84.482759% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+84.913793% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+85.344828% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+85.775862% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+86.206897% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+86.637931% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+87.068966% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+87.500000% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+87.931034% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+88.362069% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+88.793103% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+89.224138% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+89.655172% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+90.086207% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+90.517241% { stroke-dashoffset: 1.000000; stroke-width: 10; }
+90.948276% { stroke-dashoffset: 0.997425; stroke-width: 10; }
+91.379310% { stroke-dashoffset: 0.958807; stroke-width: 10; }
+91.810345% { stroke-dashoffset: 0.919300; stroke-width: 10; }
+92.241379% { stroke-dashoffset: 0.878906; stroke-width: 10; }
+92.672414% { stroke-dashoffset: 0.837624; stroke-width: 10; }
+93.103448% { stroke-dashoffset: 0.795455; stroke-width: 10; }
+93.534483% { stroke-dashoffset: 0.752397; stroke-width: 10; }
+93.965517% { stroke-dashoffset: 0.708452; stroke-width: 10; }
+94.396552% { stroke-dashoffset: 0.663619; stroke-width: 10; }
+94.827586% { stroke-dashoffset: 0.617898; stroke-width: 10; }
+95.258621% { stroke-dashoffset: 0.571289; stroke-width: 10; }
+95.689655% { stroke-dashoffset: 0.523793; stroke-width: 10; }
+96.120690% { stroke-dashoffset: 0.475408; stroke-width: 10; }
+96.551724% { stroke-dashoffset: 0.426136; stroke-width: 10; }
+96.982759% { stroke-dashoffset: 0.375977; stroke-width: 10; }
+97.413793% { stroke-dashoffset: 0.324929; stroke-width: 10; }
+97.844828% { stroke-dashoffset: 0.272994; stroke-width: 10; }
+98.275862% { stroke-dashoffset: 0.220170; stroke-width: 10; }
+98.706897% { stroke-dashoffset: 0.166460; stroke-width: 10; }
+99.137931% { stroke-dashoffset: 0.111861; stroke-width: 10; }
+99.568966% { stroke-dashoffset: 0.056374; stroke-width: 10; }
+100.000000% { stroke-dashoffset: 0.000000; stroke-width: 10; }
+100.000000% { stroke-dashoffset: 0; stroke-width: 10; } }
+@keyframes crane-seam-branch {
+0.000000%, 72.413793% { opacity: 0; stroke-dashoffset: .22; }
+72.844828% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+73.275862% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+73.706897% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+74.137931% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+74.568966% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+75.000000% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+75.431034% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+75.862069% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+76.293103% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+76.724138% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+77.155172% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+77.586207% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+78.017241% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+78.448276% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+78.879310% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+79.310345% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+79.741379% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+80.172414% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+80.603448% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+81.034483% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+81.465517% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+81.896552% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+82.327586% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+82.758621% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+83.189655% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+83.620690% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+84.051724% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+84.482759% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+84.913793% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+85.344828% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+85.775862% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+86.206897% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+86.637931% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+87.068966% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+87.500000% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+87.931034% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+88.362069% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+88.793103% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+89.224138% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+89.655172% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+90.086207% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+90.517241% { opacity: 0.000000; stroke-dashoffset: 0.220000; }
+90.948276% { opacity: 0.064364; stroke-dashoffset: 0.217425; }
+91.379310% { opacity: 1.000000; stroke-dashoffset: 0.178807; }
+91.810345% { opacity: 1.000000; stroke-dashoffset: 0.139300; }
+92.241379% { opacity: 1.000000; stroke-dashoffset: 0.098906; }
+92.672414% { opacity: 1.000000; stroke-dashoffset: 0.057624; }
+93.103448% { opacity: 1.000000; stroke-dashoffset: 0.015455; }
+93.534483% { opacity: 1.000000; stroke-dashoffset: -0.027603; }
+93.965517% { opacity: 1.000000; stroke-dashoffset: -0.071548; }
+94.396552% { opacity: 1.000000; stroke-dashoffset: -0.116381; }
+94.827586% { opacity: 1.000000; stroke-dashoffset: -0.162102; }
+95.258621% { opacity: 1.000000; stroke-dashoffset: -0.208711; }
+95.689655% { opacity: 1.000000; stroke-dashoffset: -0.256207; }
+96.120690% { opacity: 1.000000; stroke-dashoffset: -0.304592; }
+96.551724% { opacity: 1.000000; stroke-dashoffset: -0.353864; }
+96.982759% { opacity: 1.000000; stroke-dashoffset: -0.404023; }
+97.413793% { opacity: 0.937500; stroke-dashoffset: -0.455071; }
+97.844828% { opacity: 0.781250; stroke-dashoffset: -0.507006; }
+98.275862% { opacity: 0.625000; stroke-dashoffset: -0.559830; }
+98.706897% { opacity: 0.468750; stroke-dashoffset: -0.613540; }
+99.137931% { opacity: 0.312500; stroke-dashoffset: -0.668139; }
+99.568966% { opacity: 0.156250; stroke-dashoffset: -0.723626; }
+100.000000% { opacity: 0.000000; stroke-dashoffset: -0.780000; }
+100.000000% { opacity: 0; stroke-dashoffset: -1; } }
+
+.crane { --crane-duration: 2900ms; }
+</style>
+  <defs>
+    <mask id="crane-burn-left" maskUnits="userSpaceOnUse" x="60" y="100" width="130" height="90" style="mask-type:luminance">
+      <path fill="white" d="M60 100H190V190H60Z"/><path class="burn-path motion trunk burn-cut" pathLength="1" d="M126.6 175.84 104.8 157.7"/>
+<path class="burn-path motion branch burn-cut" pathLength="1" d="M104.8 157.7 94 143"/>
+<path class="burn-path motion branch burn-cut" pathLength="1" d="M104.8 157.7 78 151.8"/>
+    </mask>
+    <mask id="crane-burn-right" maskUnits="userSpaceOnUse" x="60" y="100" width="130" height="90" style="mask-type:luminance">
+      <path fill="white" d="M60 100H190V190H60Z"/><path class="burn-path motion trunk burn-cut" pathLength="1" d="M138.47928 168.11203 150 157.7"/>
+<path class="burn-path motion branch burn-cut" pathLength="1" d="M150 157.7 160 143"/>
+<path class="burn-path motion branch burn-cut" pathLength="1" d="M150 157.7 175.5 152.2"/>
+    </mask>
+    <path id="crane-left-original" d="m 133.00769,129.8278 a 1.8289019,1.8289019 0 0 0 -1.12551,1.2299 l -7.11482,25.91211 -35.523925,-23.97321 a 1.5343414,1.5343414 0 0 0 -2.158524,0.45734 l -10.016443,15.99127 a 1.4384939,1.4384939 0 0 0 0.428914,1.96577 l 25.055838,4.03644 a 135.93509,135.93509 0 0 1 -8.910053,-13.0514 0.15809664,0.15809664 0 0 1 0.131258,-0.23822 0.15809664,0.15809664 0 0 1 0.117822,0.0475 l 32.687923,33.60725 0.0538,0.0269 6.89622,-7.56801 V 130.9564 a 0.75707937,0.75707937 0 0 0 -0.52245,-1.12861 z m -47.745407,25.45323 29.281417,14.55053 -7.52564,-8.89868 a 135.93509,135.93509 0 0 1 -1.43195,-1.69654 z"/>
+    <path id="crane-right-original" d="m 164.36288,133.17798 a 1.5774668,1.5774668 0 0 0 -0.77928,0.25425 l -27.27534,17.8015 0.01,15.9799 23.98045,-24.65482 a 0.15809664,0.15809664 0 0 1 0.11782,-0.0476 0.15809664,0.15809664 0 0 1 0.13126,0.23823 135.93509,135.93509 0 0 1 -8.91005,13.0514 l 24.27294,-3.91035 a 1.4058805,1.4058805 0 0 0 0.26561,-1.82728 l -10.4035,-16.16387 a 1.5774668,1.5774668 0 0 0 -1.40973,-0.72141 z m 3.48454,22.66632 -19.24275,3.74551 a 135.93509,135.93509 0 0 1 -1.43195,1.69653 l -6.53242,7.72408 z"/>
+    <clipPath id="crane-left-clip"><path d="M60 100H124.76736V190H60Z"/></clipPath>
+    <clipPath id="crane-body-clip"><path d="M124.76736 100H190V190H124.76736Z"/></clipPath>
+  <mask id="crane-gap-left" maskUnits="userSpaceOnUse" x="60" y="100" width="130" height="90" style="mask-type:luminance"><path fill="white" d="M60 100H190V190H60Z"/><use href="#crane-left-original" fill="black"/></mask><clipPath id="crane-flare-left" clipPathUnits="userSpaceOnUse"><path d="M124.76736 156.96981 89.243435 132.9966 A1.5343414 1.5343414 0 0 0 87.084911 133.45394 L77.068468 149.44521 A1.4384939 1.4384939 0 0 0 77.497382 151.41098 L85.262283 155.28103 114.5437 169.83156 124.76736 173.949Z"/></clipPath><mask id="crane-gap-right" maskUnits="userSpaceOnUse" x="60" y="100" width="130" height="90" style="mask-type:luminance"><path fill="white" d="M60 100H190V190H60Z"/><use href="#crane-right-original" fill="black"/></mask><clipPath id="crane-flare-right" clipPathUnits="userSpaceOnUse"><path d="M136.30826 151.23373 163.5836 133.43223 A1.5774668 1.5774668 0 0 1 165.77261 133.89939 L176.17611 150.06326 A1.4058805 1.4058805 0 0 1 175.9105 151.89054 L167.84742 155.8443 140.6403 169.01042 136.31826 167.21363Z"/></clipPath></defs>
+  <g transform="translate(-65.91335851 -83.197911)">
+    <g class="flight motion ink">
+      <g transform="translate(124.76736 157)"><g class="wing-left motion"><g transform="translate(-124.76736 -157)">
+        <g clip-path="url(#crane-left-clip)">
+          <path class="cover motion" mask="url(#crane-burn-left)" d="M124.76736 156.96981 89.243435 132.9966 A1.5343414 1.5343414 0 0 0 87.084911 133.45394 L77.068468 149.44521 A1.4384939 1.4384939 0 0 0 77.497382 151.41098 L85.262283 155.28103 114.5437 169.83156 124.76736 173.949Z"/>
+          <g mask="url(#crane-gap-left)" clip-path="url(#crane-flare-left)"><path class="cooling motion" mask="url(#crane-burn-left)" d="M124.76736 156.96981 89.243435 132.9966 A1.5343414 1.5343414 0 0 0 87.084911 133.45394 L77.068468 149.44521 A1.4384939 1.4384939 0 0 0 77.497382 151.41098 L85.262283 155.28103 114.5437 169.83156 124.76736 173.949Z"/><path class="motion fragment" pathLength="1" d="M126.6 175.84 104.8 157.7"/><path class="motion fragment fragment-tip" pathLength="1" d="M104.8 157.7 94 143"/><path class="motion fragment fragment-tip" pathLength="1" d="M104.8 157.7 78 151.8"/></g><use href="#crane-left-original"/>
+
+        </g>
+      </g></g></g>
+      <g transform="translate(136.30826 157)"><g class="wing-right motion"><g transform="translate(-136.30826 -157)">
+        <path class="cover motion" mask="url(#crane-burn-right)" d="M136.30826 151.23373 163.5836 133.43223 A1.5774668 1.5774668 0 0 1 165.77261 133.89939 L176.17611 150.06326 A1.4058805 1.4058805 0 0 1 175.9105 151.89054 L167.84742 155.8443 140.6403 169.01042 136.31826 167.21363Z"/>
+        <g mask="url(#crane-gap-right)" clip-path="url(#crane-flare-right)"><path class="cooling motion" mask="url(#crane-burn-right)" d="M136.30826 151.23373 163.5836 133.43223 A1.5774668 1.5774668 0 0 1 165.77261 133.89939 L176.17611 150.06326 A1.4058805 1.4058805 0 0 1 175.9105 151.89054 L167.84742 155.8443 140.6403 169.01042 136.31826 167.21363Z"/><path class="motion fragment" pathLength="1" d="M138.47928 168.11203 150 157.7"/><path class="motion fragment fragment-tip" pathLength="1" d="M150 157.7 160 143"/><path class="motion fragment fragment-tip" pathLength="1" d="M150 157.7 175.5 152.2"/></g><use href="#crane-right-original"/>
+
+      </g></g></g>
+      <use href="#crane-left-original" clip-path="url(#crane-body-clip)"/>
+      <g transform="translate(125 146)"><g class="head motion"><path transform="translate(-125 -146)" d="m 124.97438,146.51864 0.0165,-18.941 a 4.3127478,4.3127478 121.57865 0 1 2.362,-3.84259 l 23.1285,-11.73 a 0.24292187,0.24292187 57.861617 0 1 0.25737,0.40967 l -21.5924,16.49919 z"/></g></g>
+    </g>
+  </g>
+</svg>
