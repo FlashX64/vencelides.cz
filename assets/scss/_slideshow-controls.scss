@@ -1,0 +1,92 @@
+// Shared controls for the homepage, project galleries, and full-size viewer
+.project-arrow-pair button,
+.project-card-arrow,
+.carousel .carousel-previous,
+.carousel .carousel-next,
+.carousel .carousel-fullsize,
+.image-viewer__control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--slideshow-button-size, 44px);
+  height: var(--slideshow-button-height, var(--slideshow-button-size, 44px));
+  padding: 0;
+  border: 1px solid var(--slideshow-button-border, rgba(255, 255, 255, .5));
+  border-radius: var(--slideshow-button-radius, 50%);
+  background: var(--slideshow-button-background, rgba(35, 40, 45, .55));
+  color: var(--slideshow-button-color, #fff);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--slideshow-button-shadow, none);
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  transition: background .2s, box-shadow .2s, opacity .2s;
+
+  svg {
+    display: block;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover:not(:disabled) {
+    background: var(--slideshow-button-hover, rgba(35, 40, 45, .8));
+    box-shadow: var(--slideshow-button-hover-shadow, none);
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: -4px;
+  }
+
+  &:disabled {
+    opacity: var(--slideshow-button-disabled-opacity, .35);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+// Paired controls keep one shared glass surface and an internal divider
+.project-arrow-pair {
+  border: 1px solid rgba(255, 255, 255, .6);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, .18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  button {
+    --slideshow-button-height: 42px;
+    --slideshow-button-radius: 0;
+    --slideshow-button-border: transparent;
+    --slideshow-button-background: transparent;
+    --slideshow-button-hover: rgba(255, 255, 255, .18);
+    border: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  button + button {
+    border-left: 1px solid rgba(255, 255, 255, .45);
+  }
+}
+
+.project-card-arrow {
+  --slideshow-button-size: 48px;
+  --slideshow-button-border: var(--ps-border);
+  --slideshow-button-background: var(--ps-surface);
+  --slideshow-button-color: var(--ps-text);
+  --slideshow-button-hover: var(--ps-surface);
+  --slideshow-button-shadow: 0 3px 14px rgba(0, 0, 0, .2);
+  --slideshow-button-hover-shadow: 0 3px 18px rgba(0, 0, 0, .35);
+  --slideshow-button-disabled-opacity: 0;
+}
+
+.carousel .carousel-fullsize {
+  --slideshow-button-size: 40px;
+}

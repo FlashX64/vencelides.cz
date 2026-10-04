@@ -1,0 +1,29 @@
+<footer class="site-footer d-print-none">
+  <div class="container">
+    <div class="site-footer-main">
+      <p class="site-footer-copyright">&copy; {{ now.Year }} {{ .Site.Params.seo.person.name }}</p>
+      <nav aria-label="Footer navigation">
+        <ul class="site-footer-links">
+          {{ range .Site.Menus.footer }}
+            {{ $url := .URL }}
+            {{ if hasPrefix $url "#" }}{{ $url = printf "%s%s" site.Home.RelPermalink $url }}{{ else }}{{ $url = $url | relURL }}{{ end }}
+            <li><a href="{{ $url }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+      <div class="site-footer-actions">
+        {{ range .Site.Params.seo.person.sameAs }}
+          {{ if in . "github.com" }}
+            <a href="{{ . }}" aria-label="GitHub" title="GitHub">{{ partial "icon.html" "square-github" }}</a>
+          {{ else if in . "linkedin.com" }}
+            <a href="{{ . }}" aria-label="LinkedIn" title="LinkedIn">{{ partial "icon.html" "linkedin" }}</a>
+          {{ end }}
+        {{ end }}
+        {{ if not .Site.Params.colorTheme.selector.disable.footer }}
+          {{ partial "theme-toggle.html" . }}
+        {{ end }}
+      </div>
+    </div>
+    <p class="site-footer-credit">Built with <a href="https://gohugo.io/">Hugo</a> &middot; Custom theme based on <a href="https://github.com/zetxek/adritian-free-hugo-theme">Adritian</a> &middot; <a href="{{ "licenses/" | relURL }}">Licenses</a></p>
+  </div>
+</footer>

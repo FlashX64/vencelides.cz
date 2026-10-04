@@ -1,5 +1,57 @@
-  {{ define "main" }}
-    <div id="main-content" tabindex="-1">
-      {{ partial "projects.html" . }}
+{{ define "main" }}
+{{ $projects := .RegularPages }}
+<section class="project-index" id="main-content" tabindex="-1">
+  <header class="project-index-heading">
+    <h1>{{ .Title }}</h1>
+    <p>A selection of my work in game development, 3D graphics, and modding.</p>
+  </header>
+  <div class="project-index-filters" aria-label="Filter projects by category" hidden>
+    <button type="button" data-category="all" aria-pressed="true">All projects <span>{{ len .RegularPages }}</span></button>
+    {{ range site.Data.project_showcase.categories }}
+      <button type="button" data-category="{{ .id }}" aria-pressed="false">{{ .title }} <span>{{ len (where $projects "Params.category" .id) }}</span></button>
+    {{ end }}
+  </div>
+  <p class="project-index-count" aria-live="polite" aria-atomic="true">{{ len .RegularPages }} projects</p>
+  <div class="project-index-layout">
+    <div class="project-index-list">
+      {{ range $index, $page := .RegularPages.ByDate.Reverse }}
+        <article class="project-index-row{{ if eq $index 0 }} is-previewed{{ end }}" data-project="{{ .File.ContentBaseName }}" data-categories="{{ .Params.category }}">
+          {{ $thumb := false }}
+          {{ with resources.Get .Params.image.src }}
+            {{ $thumb = .Resize "240x webp q80" }}
+          {{ end }}
+          <a href="{{ .RelPermalink }}"{{ with $thumb }} style="--project-image: url('{{ .RelPermalink }}')"{{ end }}>
+            {{ with $thumb }}
+              <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="" loading="lazy">
+            {{ end }}
+            <div class="project-index-row-copy">
+              <p class="project-index-meta">{{ .Params.type }} · {{ .Date.Format "2 Jan 2006" }}</p>
+              <h2>{{ .Title }}</h2>
+              <p class="project-index-summary">{{ partial "project-preview-text.html" (dict "page" . "full" true) }}</p>
+            </div>
+            <span class="project-index-row-arrow" aria-hidden="true">↗</span>
+          </a>
+        </article>
+      {{ end }}
     </div>
-  {{ end }}
+    <aside class="project-index-preview" aria-label="Project preview">
+      {{ range $index, $page := .RegularPages.ByDate.Reverse }}
+        <article data-preview="{{ .File.ContentBaseName }}"{{ if ne $index 0 }} hidden{{ end }}>
+          {{ with resources.Get .Params.image.src }}
+            {{ $image := .Resize "1000x webp q85" }}
+            <a class="project-index-image" href="{{ $page.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ $image.RelPermalink }}" alt="" width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy"></a>
+          {{ end }}
+          <div class="project-index-preview-copy">
+            <p class="project-index-meta">{{ .Params.type }} · {{ .Date.Format "2 Jan 2006" }}</p>
+            <h2>{{ .Title }}</h2>
+            <p>{{ partial "project-preview-text.html" (dict "page" . "full" true) }}</p>
+            {{ partial "tags.html" (dict "tags" .Params.tags) }}
+            <a class="project-index-cta" href="{{ .RelPermalink }}">View project <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      {{ end }}
+    </aside>
+  </div>
+</section>
+{{ partial "script.html" "project-index" }}
+{{ end }}

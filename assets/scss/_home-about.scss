@@ -1,0 +1,114 @@
+.home-about {
+  --about-text: var(--site-text);
+  --about-muted: var(--site-muted);
+  --about-line: var(--site-line);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100vw - 48px);
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr);
+  gap: 80px;
+  padding: 56px;
+  margin-block: 0 80px;
+  scroll-margin-top: 100px;
+  border: 1px solid var(--about-line);
+  border-radius: 16px;
+  background: linear-gradient(125deg, rgba(221,229,234,.4), rgba(245,246,248,.6) 55%, rgba(235,230,224,.25));
+  color: var(--about-text);
+}
+
+[data-bs-theme="dark"] .home-about {
+  background: linear-gradient(125deg, rgba(61,71,79,.28), rgba(33,35,40,.6) 55%, rgba(62,55,47,.18));
+}
+
+.home-about-heading h2 {
+  margin: 0 0 24px;
+  color: var(--about-text);
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+
+.home-about-story {
+  max-width: 76ch;
+}
+
+.home-about-watermark {
+  position: absolute;
+  left: 20px;
+  bottom: 48px;
+  width: 36%;
+  max-width: 460px;
+  color: var(--about-text);
+  opacity: .05;
+  pointer-events: none;
+  user-select: none;
+}
+
+.home-about-watermark svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-about-heading,
+.home-about-story {
+  position: relative;
+}
+.home-about-story h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--about-text);
+  margin: 32px 0 16px;
+  padding-top: 28px;
+  border-top: 1px solid var(--about-line);
+}
+
+.home-about-story h3:first-child {
+  padding-top: 0;
+  margin-top: 0;
+  border-top: 0;
+}
+
+.home-about-story p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--about-muted);
+  margin: 0 0 18px;
+}
+
+.home-about-story p:last-child {
+  margin-bottom: 0;
+}
+
+.home-about-story strong {
+  color: var(--about-text);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .home-about-watermark {
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+    opacity: .04;
+  }
+  .home-about {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 36px;
+    gap: 32px;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .home-about {
+    width: calc(100vw - 32px);
+    padding: 28px 22px;
+    margin-bottom: 48px;
+  }
+}
+

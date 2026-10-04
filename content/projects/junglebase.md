@@ -4,6 +4,8 @@ title: "Junglebase"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 6
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/junglebase1.jpg"

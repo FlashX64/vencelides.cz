@@ -1,0 +1,20 @@
+<section class="home-introduction" id="showcase" aria-labelledby="intro-name">
+  <div class="home-introduction-copy">
+    <p class="home-introduction-role">{{ .Get "role" }}</p>
+    <h1 id="intro-name">{{ .Get "name" }}</h1>
+    <p class="home-introduction-description">{{ .Get "description" }}</p>
+    <p class="home-introduction-current">{{ .Get "current" }}</p>
+  </div>
+  <figure class="home-introduction-portrait">
+    {{ with resources.Get (.Get "image") }}
+    {{ $portrait := .Resize "640x webp q85" }}
+    <img class="home-introduction-ambient" src="{{ $portrait.RelPermalink }}" alt="" aria-hidden="true">
+    <img class="home-introduction-photo" src="{{ $portrait.RelPermalink }}" alt="{{ $.Get "name" }}" width="{{ $portrait.Width }}" height="{{ $portrait.Height }}">
+    {{ end }}
+  </figure>
+  <div class="home-introduction-actions">
+    <a class="home-introduction-primary" href="#portfolio">Explore projects <span aria-hidden="true">↘</span></a>
+    <a class="home-introduction-contact" href="{{ .Get "contact" }}">{{ partial "icon.html" "linkedin" }} Contact me <span aria-hidden="true">↗</span></a>
+    <a class="home-introduction-github" href="{{ .Get "github" }}">{{ partial "icon.html" "square-github" }} GitHub <span aria-hidden="true">↗</span></a>
+  </div>
+</section>

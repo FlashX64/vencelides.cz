@@ -1,0 +1,69 @@
+{{ $data := site.Data.project_showcase }}
+{{ $projects := where site.RegularPages "Section" "projects" }}
+<section id="portfolio" class="project-showcase" aria-labelledby="projects-heading">
+  <div class="project-showcase-heading"><h2 id="projects-heading">Projects</h2><a href="{{ "projects/" | relURL }}">All projects <span aria-hidden="true">↗</span></a></div>
+  <div class="project-feature-frame">
+  <h3 class="project-feature-heading" id="featured-heading">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55L2.48 9.42l6.58-.96Z"/></svg>
+    <span>FEATURED</span>
+  </h3>
+  <div class="project-feature" aria-labelledby="featured-heading" aria-roledescription="carousel">
+    <div class="project-feature-slides">
+      {{ range $index, $key := $data.featured }}
+      {{ with site.GetPage (printf "projects/%s" $key) }}
+      {{ $page := . }}
+      {{ with resources.Get .Params.image.src }}
+      {{ $image := .Resize "1200x webp q85" }}
+      <article class="project-feature-slide" data-feature-slide aria-label="{{ add $index 1 }} of {{ len $data.featured }}: {{ $page.Title }}">
+        <img class="project-ambient" src="{{ $image.RelPermalink }}" alt="" aria-hidden="true">
+        <div class="project-feature-copy">
+          <p class="project-feature-meta">{{ $page.Params.type }} <span> / {{ $page.Date.Format "2006" }}</span></p>
+          <h4><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h4>
+          <p class="project-feature-description">{{ partial "project-preview-text.html" $page }}</p>
+          <a class="project-feature-link" href="{{ $page.RelPermalink }}">View project <span aria-hidden="true">↗</span></a>
+          <div class="project-feature-tech">{{ partial "tags.html" (dict "tags" $page.Params.tags) }}</div>
+        </div>
+        <a class="project-feature-image" href="{{ $page.RelPermalink }}" aria-label="View {{ $page.Title }}">
+          <img src="{{ $image.RelPermalink }}" alt="{{ $page.Title }} preview" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ if gt $index 0 }}loading="lazy"{{ end }}>
+        </a>
+      </article>
+      {{ end }}{{ end }}{{ end }}
+    </div>
+    <div class="project-feature-controls" hidden>
+      <div class="project-feature-dots" aria-label="Choose featured project">{{ range $index, $key := $data.featured }}{{ with site.GetPage (printf "projects/%s" $key) }}<button type="button" data-feature-index="{{ $index }}" aria-label="Show {{ .Title }}"><span></span></button>{{ end }}{{ end }}</div>
+      <span class="project-feature-status" aria-live="polite" aria-atomic="true"></span>
+      <div class="project-arrow-pair"><button type="button" data-feature-step="-1" aria-label="Previous featured project">{{ partial "project-arrow.html" "previous" }}</button><button type="button" data-feature-step="1" aria-label="Next featured project">{{ partial "project-arrow.html" "next" }}</button></div>
+    </div>
+  </div>
+  </div>
+  <div class="project-category-heading"><h3>Browse by category</h3></div>
+  <div class="project-category-tabs" role="tablist" aria-label="Project categories" hidden>
+    {{ range $data.categories }}<button type="button" role="tab" id="category-tab-{{ .id }}" aria-controls="category-{{ .id }}" aria-selected="false" tabindex="-1">{{ .title }}<span>{{ len (where $projects "Params.category" .id) }}</span></button>{{ end }}
+  </div>
+  <div class="project-category-panels">
+  {{ range $data.categories }}
+  <section class="project-category-panel" id="category-{{ .id }}" aria-label="{{ .title }}">
+    {{ with site.GetPage (printf "projects/%s" .cover) }}{{ with resources.Get .Params.image.src }}{{ $cover := .Resize "900x webp q80" }}<img class="project-ambient" src="{{ $cover.RelPermalink }}" alt="" loading="lazy" aria-hidden="true">{{ end }}{{ end }}
+    <div class="project-category-intro"><p class="project-category-label">{{ len (where $projects "Params.category" .id) }} projects</p><h3>{{ .title }}</h3><p>{{ .description }}</p></div>
+    <div class="project-category-browser">
+    <div class="project-category-track" tabindex="0" aria-label="{{ .title }} project cards">
+      {{ range sort (where $projects "Params.category" .id) "Params.category_order" }}{{ $page := . }}
+      <article class="project-browser-card">
+        <a class="project-browser-image" href="{{ .RelPermalink }}" aria-label="View {{ .Title }}">{{ with resources.Get .Params.image.src }}{{ $thumb := .Resize "640x webp q85" }}<img src="{{ $thumb.RelPermalink }}" alt="{{ $page.Title }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">{{ end }}</a>
+        <div class="project-browser-copy"><p class="project-browser-meta">{{ .Params.type }} · {{ .Date.Format "2006" }}</p><h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4><p>{{ partial "project-preview-text.html" . }}</p><a class="project-browser-link" href="{{ .RelPermalink }}">View project <span aria-hidden="true">↗</span></a></div>
+      </article>
+      {{ end }}
+    </div>
+      <div class="project-card-navigation" hidden>
+        <button class="project-card-arrow project-card-arrow-previous" type="button" data-card-step="-1" aria-label="Previous {{ .title }} projects">{{ partial "project-arrow.html" "previous" }}</button>
+        <button class="project-card-arrow project-card-arrow-next" type="button" data-card-step="1" aria-label="Next {{ .title }} projects">{{ partial "project-arrow.html" "next" }}</button>
+        <span class="visually-hidden project-card-status" aria-live="polite" aria-atomic="true"></span>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+  </div>
+</section>
+{{ partial "script.html" "project-showcase" }}
+
+

@@ -1,0 +1,136 @@
+/*! Layout adapted from Adritian v1.9.12; see static/licenses/adritian.txt. */
+.header {
+  padding-top: 20px;
+  transition:
+    padding 0.35s ease,
+    background-color 0.35s ease;
+  color: var(--bs-body-color);
+
+  .container {
+    padding-left: 10px;
+  }
+  .site-navbar {
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  }
+  .navbar-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 0;
+    color: inherit;
+  }
+  .navbar-brand span {
+    font-size: 25px;
+    letter-spacing: -1.17px;
+  }
+  .navbar-brand span:nth-child(2) {
+    margin-top: 0;
+  }
+  .navbar-brand:hover {
+    color: inherit;
+  }
+  .navbar-toggler {
+    position: absolute;
+    left: 0;
+    top: 14px;
+    padding: 0;
+    border: 0;
+  }
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+  .navbar-collapse {
+    margin-top: 30px;
+    max-height: calc(100dvh - 123px);
+    overflow-y: auto;
+  }
+  .navbar-nav {
+    align-items: center;
+  }
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  }
+  .nav-item:first-child {
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding-block: 20px;
+    font-size: 18px;
+  }
+  .nav-link {
+    color: inherit;
+  }
+  &.collapse:not(.show) {
+    display: block;
+  }
+  &.show,
+  &.collapsing {
+    height: 100dvh !important;
+    background: var(--bs-body-bg);
+  }
+}
+
+.header--sticky-triggered {
+  padding-top: 5px;
+  background: var(--bs-body-bg);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+[data-bs-theme="dark"] .header .site-navbar {
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+@media (min-width: 768px) {
+  .header .navbar-brand span {
+    font-size: 32.9px;
+  }
+}
+@media (min-width: 992px) {
+  .header {
+    padding-top: 35px;
+  }
+  .header--sticky-triggered {
+    padding-top: 5px;
+  }
+  .header .navbar-brand {
+    margin-right: 16px;
+  }
+  .header .navbar-collapse {
+    margin-top: 0;
+    max-height: none;
+    overflow: visible;
+  }
+  .header .navbar-nav {
+    margin-left: auto;
+  }
+  .header .nav-item,
+  .header .nav-item:first-child {
+    width: auto;
+    border: 0;
+  }
+  .header .nav-link {
+    padding-block: 0;
+    font-size: 14px;
+  }
+}
+@media (min-width: 1200px) {
+  .header .navbar-nav {
+    --bs-navbar-nav-link-padding-x: 1rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1280px) {
+  .header {
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header .navbar-brand {
+    margin-top: 10px;
+  }
+}

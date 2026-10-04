@@ -4,6 +4,8 @@ title: "HalongForBetterPlaying"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 13
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/hfbp1.jpg"

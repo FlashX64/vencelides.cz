@@ -1,0 +1,158 @@
+// Optional article blocks: use them to group facts, explain a sequence, or call out a limitation
+.project-prose .article-panel {
+  --article-accent: #427a88;
+  margin: 28px 0;
+  padding: 24px;
+  border: 1px solid var(--project-line);
+  border-radius: 14px;
+  background: linear-gradient(125deg, var(--project-surface), transparent);
+  font-size: 15px;
+  line-height: 1.7;
+
+  .article-panel-label {
+    margin: 0 0 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--project-muted);
+  }
+
+  > :last-child,
+  li > :last-child {
+    margin-bottom: 0;
+  }
+
+  > ul,
+  > ol {
+    display: grid;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  li strong {
+    display: block;
+    color: var(--project-text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+}
+
+[data-bs-theme="dark"] .project-prose .article-panel {
+  --article-accent: #8fb9c3;
+}
+
+.project-prose .article-panel--features > ul,
+.project-prose .article-panel--comparison > ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-prose .article-panel--features li {
+  padding-left: 16px;
+  border-left: 2px solid var(--article-accent);
+}
+
+.project-prose .article-panel--facts > ul {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-prose .article-panel--facts li strong {
+  font-size: 26px;
+  letter-spacing: -.025em;
+}
+
+.project-prose .article-panel--steps > ol {
+  counter-reset: article-step;
+  gap: 0;
+}
+
+.project-prose .article-panel--steps li {
+  position: relative;
+  margin-left: 15px;
+  padding: 0 0 24px 34px;
+  border-left: 1px solid var(--project-line);
+  counter-increment: article-step;
+
+  &::before {
+    content: counter(article-step, decimal-leading-zero);
+    position: absolute;
+    left: -16px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--project-line);
+    border-radius: 50%;
+    background: var(--bs-body-bg);
+    color: var(--article-accent);
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-left-color: transparent;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+.project-prose .article-panel--note {
+  border-left: 3px solid var(--article-accent);
+}
+
+@media (max-width: 600px) {
+  .project-prose .article-panel {
+    padding: 20px;
+  }
+
+  .project-prose .article-panel--features > ul,
+  .project-prose .article-panel--comparison > ul,
+  .project-prose .article-panel--facts > ul {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+
+.project-prose .article-panel--table table {
+  width: 100%;
+  border-collapse: collapse;
+  color: inherit;
+  font-size: inherit;
+
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: top;
+    border: 0;
+    border-bottom: 1px solid var(--project-line);
+    background: transparent;
+  }
+
+  th {
+    color: var(--project-text);
+    font-weight: 600;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+}
+
+.project-prose .article-panel a {
+  color: var(--project-text);
+  text-decoration: underline;
+  text-decoration-color: var(--article-accent);
+  text-underline-offset: 4px;
+}

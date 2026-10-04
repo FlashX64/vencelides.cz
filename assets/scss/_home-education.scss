@@ -1,0 +1,125 @@
+.home-education {
+  --education-text: var(--site-text);
+  --education-muted: var(--site-muted);
+  --education-line: var(--site-line);
+  --education-surface: var(--site-glass-surface);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100vw - 48px);
+  max-width: 1440px;
+  margin-bottom: 80px;
+  scroll-margin-top: 100px;
+}
+
+.home-education h2 {
+  margin: 0 0 26px;
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--education-text);
+}
+
+.home-education-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.home-education-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 32px;
+  padding: 28px 36px;
+  border: 1px solid var(--education-line);
+  border-radius: 16px;
+  background: var(--education-surface);
+}
+
+.home-education-card[data-accent="muni"] {
+  --education-accent: #0000dc;
+  --education-tint: rgba(0,0,220,.07);
+}
+
+.home-education-card[data-accent="vspj"] {
+  --education-accent: #b42840;
+  --education-tint: rgba(180,40,64,.07);
+}
+
+.home-education-card[data-accent] {
+  background: linear-gradient(110deg, var(--education-tint), transparent 65%), var(--education-surface);
+}
+
+.home-education-card[data-accent]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--education-accent);
+}
+
+[data-bs-theme="dark"] .home-education-card[data-accent="muni"] {
+  --education-accent: #7777f5;
+  --education-tint: rgba(92,92,230,.09);
+}
+
+[data-bs-theme="dark"] .home-education-card[data-accent="vspj"] {
+  --education-accent: #de7688;
+  --education-tint: rgba(180,60,80,.09);
+}
+
+.home-education-card .home-education-date {
+  margin: 0;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--education-muted);
+}
+
+.home-education-card h3 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  color: var(--education-text);
+}
+
+.home-education-card .home-education-degree {
+  margin: 0 0 6px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--education-text);
+}
+
+.home-education-card .home-education-specialization {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--education-muted);
+}
+
+@media (max-width: 600px) {
+  .home-education {
+    width: calc(100vw - 32px);
+    margin-bottom: 48px;
+  }
+
+  .home-education-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .home-education-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 28px 22px;
+  }
+
+  .home-education-card h3 {
+    font-size: 22px;
+  }
+}

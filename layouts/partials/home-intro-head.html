@@ -41,7 +41,6 @@
     #home-intro .home-intro-name span {
       display: block; width: max-content; white-space: nowrap;
     }
-    /* Show the name below the crane and reveal both in one fade */
     #home-intro .home-intro-crane { grid-area: 1 / 1; }
     #home-intro .home-intro-name { grid-area: 2 / 1; }
     .home-intro-presenting #home-intro .home-intro-card {
@@ -73,13 +72,8 @@
     }
   </style>
   {{ if hugo.IsDevelopment }}
-    {{ with resources.Get "js/home-intro-debug.js" }}
-      <script>{{ .Content | safeJS }}</script>
-    {{ end }}
+    {{ partial "script.html" "home-intro-debug" }}
   {{ end }}
-  {{ with resources.Get "js/home-intro.js" }}
-    {{/* Run before the body is painted to avoid flashing the homepage first */}}
-    <script>{{ .Content | safeJS }}</script>
-  {{ end }}
+  {{ partial "script.html" "home-intro" }}
 {{ end }}
 

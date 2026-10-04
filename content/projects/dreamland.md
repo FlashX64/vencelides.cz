@@ -4,6 +4,8 @@ title: "Dreamland"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 4
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/dreamland1.jpg"

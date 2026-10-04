@@ -4,6 +4,8 @@ title: "Limerick"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 12
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/limerick1.jpg"

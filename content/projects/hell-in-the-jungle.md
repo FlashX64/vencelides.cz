@@ -4,6 +4,8 @@ title: "Vietcong: Hell in the Jungle"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 1
   type: "Vietcong scripting"
   image:
     src: "/media/projects/vietcong/hell-in-the-jungle2.jpg"

@@ -4,6 +4,8 @@ title: "SectorThirteen"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 10
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/sector13-1.jpg"

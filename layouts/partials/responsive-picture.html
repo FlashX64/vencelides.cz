@@ -1,0 +1,11 @@
+{{ with resources.Get .src }}
+  {{ $image := . }}
+  {{ $width := $image.Width }}
+  {{ with $.scale }}{{ $width = int (mul (float $width) (float .)) }}{{ end }}
+  {{ with $.width }}{{ $width = int . }}{{ end }}
+  {{ $small := $image.Resize (printf "%dx webp q85" $width) }}
+  {{ $large := $image.Resize (printf "%dx webp q85" (math.Min $image.Width (mul $width 2) | int)) }}
+  <picture class="{{ $.pictureclass }}">
+    <img data-fullsize="{{ $image.RelPermalink }}" class="{{ $.class }}" src="{{ $small.RelPermalink }}" srcset="{{ $small.RelPermalink }} 1x, {{ $large.RelPermalink }} 2x" width="{{ $small.Width }}" height="{{ $small.Height }}" alt="{{ $.alt }}" loading="lazy" decoding="async">
+  </picture>
+{{ end }}

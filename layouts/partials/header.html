@@ -1,0 +1,60 @@
+{{/* Adapted from Adritian v1.9.12; see static/licenses/adritian.txt. */}}
+<header class="header fixed-top" id="header">
+  {{ partial "skip-to-content.html" }}
+  <div class="container">
+    <nav class="navbar site-navbar navbar-expand-lg navbar-light p-0" aria-label="Primary navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand mx-auto" href="{{ .Site.BaseURL | relLangURL }}">
+            {{ if .Site.Params.logo }}
+            <img
+            src="{{ .Site.Params.logo | absURL }}"
+            alt="Filip Vencelides logo"
+            class="logo"
+            />
+            {{ end }}
+          <span>Filip</span>
+          <span>Vencelides</span>
+        </a>
+        <button
+          class="navbar-toggler collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent, #header"
+          aria-controls="navbarSupportedContent header"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            {{- range .Site.Menus.header }}
+            <li class="nav-item">
+              {{ $current := or (and (eq .URL "#portfolio") (eq $.Section "projects")) (and (not (hasPrefix .URL "#")) (eq (strings.TrimSuffix "/" $.RelPermalink) (.URL | relURL | strings.TrimSuffix "/"))) }}
+              <a data-scroll class="nav-link" href="{{ .URL | relURL }}"{{ if $current }} aria-current="page"{{ end }}>
+                {{- if .Pre -}}
+                  {{ partial "icon.html" .Pre }}
+                  <span class="visually-hidden">{{ .Name | default .Pre }}</span>
+                {{- else -}}
+                  {{ .Name }}
+                {{- end -}}
+              </a>
+            </li>
+            {{- end }}
+            
+            {{- if not .Site.Params.colorTheme.selector.disable.header }}
+            <li class="nav-item">
+              {{ partial "theme-toggle.html" . }}
+            </li>
+            {{- end }}
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</header>
+
+{{- if not .IsHome }} 
+  {{ partial "breadcrumb.html" . }} 
+{{- end }}

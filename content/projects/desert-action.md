@@ -4,6 +4,8 @@ title: "Desert_Action"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 7
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/desert-action1.jpg"

@@ -1,0 +1,20 @@
+<section class="home-education" id="education" aria-labelledby="education-heading">
+  <h2 id="education-heading">{{ .Get "title" | default "Education" }}</h2>
+  <div class="home-education-grid">
+    {{ with site.GetPage "education" }}
+    {{ range (.RegularPages.ByParam "year").Reverse }}
+    <article class="home-education-card"{{ with .Params.accent }} data-accent="{{ . }}"{{ end }}>
+      <p class="home-education-date">{{ .Params.year | replaceRE "-" "–" }}</p>
+      <div class="home-education-details">
+      <h3>{{ .Params.university }}</h3>
+      {{ $degree := split .Params.degree "•" }}
+      <p class="home-education-degree">{{ trim (index $degree 0) " " }}</p>
+      {{ if gt (len $degree) 1 }}
+      <p class="home-education-specialization">{{ trim (index $degree 1) " " }}</p>
+      {{ end }}
+      </div>
+    </article>
+    {{ end }}
+    {{ end }}
+  </div>
+</section>

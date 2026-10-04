@@ -2,7 +2,6 @@
 
 @import "carousel";
 @import "tags";
-@import "variables";
 
 .abbreviation-trigger {
   display: inline;
@@ -28,69 +27,8 @@
   }
 }
 
-/* Prevent anchor scroll from hiding content under header */
-.skill-item {
-  scroll-margin-top: 72px;
-}
-
-// Prevent image sizing from breaking aspect ratio
-.picture-works {
-  height: inherit;
-}
-
-.project-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-
-  font-size: 0.85rem;
-
-  // All items (year, type, tags)
-  > * {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  // Separator
-  > *:not(:last-child)::after {
-    content: "•";
-    margin-left: 0.4rem;
-    opacity: 0.6;
-  }
-
-  .project-year {
-    opacity: 0.8;
-  }
-
-  .project-type {
-    font-weight: 500;
-  }
-}
-
-.experience.selected a .experience__title,
-.experience:hover a .experience__title,
-.experience:active a .experience__title,
-.experience a:hover .experience__title,
-.experience a:active .experience__title {
-  color: white !important;
-}
-
 a.btn {
   text-decoration: none;
-}
-
-.section li a {
-  color: inherit;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-position: from-font;
-  text-decoration-style: solid;
-  text-decoration-thickness: 1px;
-  transition: all 0.5s;
-
-  &:hover {
-    color: $dark-primary;
-  }
 }
 
 .project-pic {
@@ -111,26 +49,13 @@ a.btn {
   height: 100%;
   display: block;
   object-fit: cover;
-
-  &-desc-caption {
-    margin-top: 0.4rem;
-    text-align: left;
-    font-size: 0.85rem;
-  }
-}
-
-/* header */
-// The theme only draws the navigation divider in dark mode
-[data-bs-theme="light"] .header .bd-navbar {
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
 }
 
 .header.header--sticky-triggered {
-  // Remove the theme's extra space below the navigation border
   padding-bottom: 0;
 }
 
-// Keep the theme's solid background when backdrop blur is unavailable
+// Keep a solid background when backdrop blur is unavailable
 @supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
   .header.header--sticky-triggered {
     background-color: rgba(255, 255, 255, 0.7);
@@ -152,87 +77,20 @@ a.btn {
 
 .header .navbar-brand span:nth-child(2) {
   font-weight: 900;
-  color: #ff4982 !important;
+  color: var(--site-brand) !important;
 }
 
-.project-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
+@import "project-showcase";
+@import "home-introduction";
+@import "home-about";
+@import "home-education";
+@import "home-experience";
+@import "project-page";
+@import "slideshow-controls";
 
-  padding: 0.25rem 0.6rem;
-  font-size: 0.7rem;
-  font-weight: 700;
-
-  border-radius: 999px;
-
-  &::before {
-    content: "★";
-    font-size: 0.7rem;
-    line-height: 1;
-  }
-}
-
-.breadcrumb-icon {
-  display: inline-flex;
-  align-items: center;
-}
-
-// The theme already adds a › separator with ::after. Hide Bootstrap's extra
-// ::before slash.
-.breadcrumbs .breadcrumb-item + .breadcrumb-item::before {
-  content: none;
-}
-
-// Show the full current-page title instead of the fixed-width ellipsis
-.breadcrumbs .breadcrumb-item[aria-current="page"] {
-  min-width: 0;
-  max-width: 100%;
-
-  .breadcrumb-text {
-    max-width: none;
-    min-width: 0;
-    white-space: normal;
-    overflow: visible;
-    overflow-wrap: anywhere;
-    text-overflow: clip;
-  }
-}
-
-// The theme resets input padding to zero horizontally, then restores only the
-// search field's left side
-#search-query {
-  padding-inline: 1rem;
-}
-
-// Keep search-tag text readable instead of inheriting the general link hover color
-#search-results a.badge {
-  &:hover,
-  &:focus-visible {
-    color: #fff;
-    // Bootstrap's bg-primary utility sets its background with !important
-    background-color: #8f2547 !important;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--bs-body-color);
-    outline-offset: 2px;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  #search-results > .search-result-enter {
-    animation: search-results-enter 240ms ease-out;
-  }
-}
-
-@keyframes search-results-enter {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@import "breadcrumbs";
+@import "project-index";
+@import "article-panels";
+@import "skills-page";
+@import "site-footer";
+@import "site-navigation";

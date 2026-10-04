@@ -1,0 +1,261 @@
+.project-player {
+  margin: 28px 0;
+  border: 1px solid var(--site-media-line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--site-media-surface);
+  color: var(--site-media-text);
+
+  [hidden] {
+    display: none !important;
+  }
+
+  .project-player-stage {
+    position: relative;
+    background: #080a0d;
+    display: flex;
+    justify-content: center;
+    min-height: 0;
+    video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 75vh;
+      object-fit: contain;
+      cursor: pointer;
+    }
+  }
+
+  .project-player-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    background: var(--site-media-surface);
+    border-top: 1px solid var(--site-media-line);
+    box-shadow: inset 0 1px 0 var(--site-media-glass-highlight);
+    @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      background: var(--site-media-glass);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+      backdrop-filter: blur(24px) saturate(140%);
+    }
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  &.is-controls-visible .project-player-controls,
+  .project-player-controls:has(:focus-visible) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (hover: hover) {
+    &:not(:fullscreen) .project-player-stage:hover .project-player-controls,
+    .project-player-controls:hover {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-player-controls {
+      transition: none;
+    }
+  }
+
+  button {
+    display: grid;
+    place-items: center;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    color: inherit;
+    background: transparent;
+    &:hover {
+      background: rgba(128, 128, 128, 0.15);
+      border-color: var(--site-media-line);
+    }
+    svg {
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  input[type="range"] {
+    appearance: none;
+    background: transparent;
+    height: 24px;
+    cursor: pointer;
+    min-width: 0;
+
+    &::-webkit-slider-runnable-track {
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(
+        to right,
+        var(--site-media-text) var(--video-progress, 0%),
+        var(--site-media-line) var(--video-progress, 0%)
+      );
+    }
+    &::-webkit-slider-thumb {
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      margin-top: -4px;
+      border-radius: 50%;
+      background: var(--site-media-text);
+    }
+    &::-moz-range-track {
+      height: 4px;
+      border-radius: 4px;
+      background: var(--site-media-line);
+    }
+    &::-moz-range-progress {
+      height: 4px;
+      background: var(--site-media-text);
+    }
+    &::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--site-media-text);
+    }
+  }
+  .project-player-seek {
+    flex: 1;
+  }
+  .project-player-volume {
+    width: 70px;
+  }
+  .project-player-volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  [data-video-loop][aria-pressed="true"],
+  [data-video-volume-toggle][aria-expanded="true"] {
+    background: var(--site-media-text);
+    color: var(--bs-body-bg);
+  }
+  .project-player-time {
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  :is(button, input):focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  figcaption,
+  .project-player-message {
+    padding: 14px 20px;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .project-player-embed {
+    position: relative;
+    aspect-ratio: 16 / 9;
+  }
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  &:fullscreen {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--bs-body-bg);
+    .project-player-stage {
+      flex: 1;
+    }
+    .project-player-stage video {
+      max-height: 100%;
+      height: 100%;
+    }
+    figcaption {
+      display: none;
+    }
+    .project-player-controls {
+      padding-bottom: calc(4px + env(safe-area-inset-bottom));
+    }
+    &.is-paused .project-player-controls {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .project-player-message {
+      position: absolute;
+      top: 16px;
+      align-self: center;
+      background: var(--site-media-surface);
+      border-radius: 12px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .project-player-controls {
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 4px 6px;
+    }
+    .project-player-seek {
+      order: -1;
+      flex-basis: 100%;
+    }
+    .project-player-time {
+      margin-right: auto;
+    }
+    .project-player-volume {
+      width: 55px;
+    }
+  }
+
+  @media (pointer: coarse) {
+    button {
+      flex-basis: 44px;
+      width: 44px;
+      height: 44px;
+    }
+  }
+}
+
+.project-player figcaption,
+.project-page .carousel-desc-caption {
+  margin: 0;
+  padding: 20px 24px;
+  border-top: 1px solid var(--site-media-line);
+  background: var(--site-media-caption-surface);
+  color: var(--site-media-caption-text);
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+

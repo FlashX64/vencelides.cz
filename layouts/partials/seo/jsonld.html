@@ -1,0 +1,4 @@
+{{ $person := merge .Site.Params.seo.person (dict "@type" "Person") }}
+{{ $website := dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL "description" .Site.Params.description "publisher" $person "inLanguage" .Site.Language.LanguageCode }}
+<script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ merge $person (dict "@context" "https://schema.org") | jsonify | safeJS }}</script>

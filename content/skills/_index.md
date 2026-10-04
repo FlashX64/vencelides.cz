@@ -1,5 +1,6 @@
 ---
 title: "Technical Skills"
+noindex: true
 date: 2026-04-26T00:00:00+02:00
 draft: false
 experience_description: "A comprehensive overview of technical skills and expertise across various domains."

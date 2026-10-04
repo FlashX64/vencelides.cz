@@ -12,10 +12,11 @@ Usage:
 {{ $class := .Get "class" }}
 
 <div class="project-pic">
-  {{ partial "lazypicture" (dict
+  {{ partial "responsive-picture.html" (dict
   "src"   (.Get "src")
   "scale" (.Get "scale")
-  "class" "{{ $class }} project-pic"
+  "class" (printf "%s project-pic" $class)
+  "alt" ($desc | markdownify | plainify)
   ) }}
   {{ with $desc }}
     <div class="d-flex justify-content-center">

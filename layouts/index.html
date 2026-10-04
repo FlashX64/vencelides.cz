@@ -1,0 +1,5 @@
+{{ define "main" }}
+<div id="main-content" tabindex="-1" class="container home-container">
+  {{ with site.GetPage "home/home" }}{{ .Content }}{{ end }}
+</div>
+{{ end }}

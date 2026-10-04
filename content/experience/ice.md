@@ -5,11 +5,10 @@ title: "3DCP Slicer Development"
 jobTitle: "Software Developer"
 company: "ICE Industrial Services"
 location: "Žďár nad Sázavou, Czech Republic"
-duration: "2021-now"
+duration: "2021-present"
 companyLogo: "media/experience/ice.jpg"
+accent: "ice"
 ---
-
-## Software Developer
 
 I began my professional career at the age of 19 as a Junior Software Developer at <a target="_blank" rel="noopener noreferrer" href="https://www.ice.cz/en">ICE Industrial Services</a>, a Czech-based company, where I was involved from the very beginning in developing a software solution for print path design and data preparation for 3D Concrete Printing (3DCP), a project that has since evolved into <a target="_blank" rel="noopener noreferrer" href="https://www.coral3dcp.com/">Coral Construction Technologies.</a>
 

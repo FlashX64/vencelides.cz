@@ -1,0 +1,12 @@
+{{ $page := . }}
+{{ $full := false }}
+{{ if reflect.IsMap . }}
+  {{ $page = .page }}
+  {{ $full = .full }}
+{{ end }}
+{{ with $page.Params.preview }}
+  {{ . }}
+{{ else }}
+  {{ $summary := $page.Summary | plainify | htmlUnescape }}
+  {{ if $full }}{{ $summary }}{{ else }}{{ $summary | truncate 170 }}{{ end }}
+{{ end }}

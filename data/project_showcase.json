@@ -1,0 +1,34 @@
+{
+  "featured": [
+    "lightmapper",
+    "cryogenesis",
+    "lutsip",
+    "moora"
+  ],
+  "categories": [
+    {
+      "id": "graphics",
+      "title": "3D graphics & tools",
+      "description": "Rendering, 3D editors, and asset pipelines",
+      "cover": "lightmapper"
+    },
+    {
+      "id": "games",
+      "title": "Games",
+      "description": "Game projects",
+      "cover": "cryogenesis"
+    },
+    {
+      "id": "modding",
+      "title": "Modding",
+      "description": "Maps, custom missions, and game modes",
+      "cover": "koppa"
+    },
+    {
+      "id": "modeling",
+      "title": "3D modeling",
+      "description": "Original models and animations",
+      "cover": "moora"
+    }
+  ]
+}

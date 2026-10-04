@@ -4,6 +4,8 @@ title: "MYRSEX"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 5
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/myrsex1.jpg"

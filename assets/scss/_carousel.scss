@@ -64,40 +64,19 @@
     }
   }
 
-  .prev,
-  .next {
+  .carousel-previous,
+  .carousel-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.25rem 0.5rem;
-    font-size: 50px;
-    color: white;
-    cursor: pointer;
-    user-select: none;
   }
 
-  /* Override .section behavior from "_raditian.scss" */
-  ul {
-    padding: 0px 0px;
-
-    li {
-      padding: 0px 0px;
-
-      &::before {
-        content: normal;
-      }
-    }
-  }
-
-  .prev {
+  .carousel-previous {
     left: 10px;
   }
 
-  .next {
+  .carousel-next {
     right: 10px;
   }
 
@@ -132,35 +111,10 @@
   }
 
   .carousel-fullsize {
-    bottom: 5%;
     position: absolute;
+    bottom: 5%;
     right: 12px;
     z-index: 11;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
-
-    border: 0;
-    border-radius: 0.375rem;
-
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-
-    font-size: 1.1rem;
-    line-height: 1;
-    cursor: pointer;
-    user-select: none;
-
-    &:hover,
-    &:focus {
-      background: rgba(0, 0, 0, 0.75);
-      color: #fff;
-    }
   }
 
   // Reserve space for the tallest caption, so switching slides does not move the content below
@@ -213,56 +167,4 @@
   &--blue { background: #2563eb; }
   &--green { background: #16a34a; }
   &--red { background: #dc2626; }
-}
-
-.carousel-image-modal {
-  // Long captions remain readable and scrollable even on small screens
-  .modal-footer {
-    max-height: 35vh;
-    overflow-y: auto;
-    flex-shrink: 0;
-  }
-
-  .carousel-modal-prev,
-  .carousel-modal-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.25rem 0.5rem;
-    font-size: 50px;
-    color: white;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .carousel-modal-prev {
-    left: 1rem;
-  }
-
-  .carousel-modal-next {
-    right: 1rem;
-  }
-
-  img {
-    max-width: 100%;
-    max-height: calc(100vh - 180px);
-    width: auto;
-    height: auto;
-    object-fit: contain;
-  }
-}
-
-/* Avoid Bootstrap modals shifting content to the right when a modal opens */
-body.modal-open {
-  padding-right: inherit !important;
-  overflow: hidden !important;
-
-  header {
-    padding-right: inherit !important;
-  }
-
 }

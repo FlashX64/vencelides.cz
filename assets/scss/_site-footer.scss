@@ -1,0 +1,118 @@
+.site-footer {
+  --footer-text: var(--site-text);
+  --footer-muted: #666a72;
+  --footer-line: var(--site-line);
+  --footer-hover: rgba(100, 117, 128, .1);
+  padding: 32px 0 28px;
+  border-top: 1px solid var(--footer-line);
+  color: var(--footer-text);
+  background: transparent;
+}
+
+[data-bs-theme="dark"] .site-footer {
+  --footer-muted: #a6aab3;
+}
+
+.site-footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px 32px;
+}
+
+.site-footer .site-footer-copyright {
+  margin: 0 auto 0 0;
+  color: var(--footer-text);
+  font-size: 14px;
+}
+
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--footer-muted);
+    font-size: 14px;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--footer-text);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+}
+
+.site-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  > a,
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--footer-line);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--footer-text);
+    text-decoration: none;
+    box-shadow: none;
+    font-size: 18px;
+    line-height: 1;
+
+    &:hover {
+      background: var(--footer-hover);
+    }
+  }
+
+}
+
+.site-footer .site-footer-credit {
+  margin: 16px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--footer-muted);
+
+  a {
+    color: inherit;
+    text-underline-offset: 3px;
+  }
+}
+
+.site-footer :is(a, button):focus-visible {
+  outline: 2px solid var(--footer-text);
+  outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .site-footer-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .site-footer-links {
+    gap: 4px 22px;
+  }
+
+  .site-footer .site-footer-credit {
+    margin-top: 22px;
+  }
+}

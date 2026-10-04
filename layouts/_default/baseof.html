@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.LanguageCode }}" data-bs-theme="dark" data-default-theme="{{ if .Site.Params.colorTheme.auto.disable }}{{ .Site.Params.colorTheme.forced.theme }}{{ else }}auto{{ end }}">
+<head>{{ partial "head.html" . }}</head>
+<body class="{{ if .IsHome }}home{{ else }}page-{{ .Type }}{{ end }}">
+  {{ partial "header.html" . }}
+  <main{{ if not .IsHome }} class="container"{{ end }}>{{ block "main" . }}{{ end }}</main>
+  {{ partial "footer.html" . }}
+  {{ partial "base-foot.html" . }}
+  {{ block "footerfiles" . }}{{ end }}
+</body>
+</html>

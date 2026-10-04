@@ -1,0 +1,83 @@
+// Shared colors are inherited by components and switch with the page theme
+:root,
+[data-bs-theme="light"] {
+  --site-accent: #{$base-color};
+  --site-accent-hover: #{darken($base-color, 10%)};
+  --site-accent-soft: #{$accent-soft};
+  --site-accent-strong: #{$accent-strong};
+  --site-brand: #{$brand-color};
+  --site-text: #25272b;
+  --site-muted: #5e6269;
+  --site-line: rgba(35, 40, 50, .12);
+  --site-surface: rgba(225, 232, 235, .4);
+  --site-card-background: #f5f6f8;
+  --site-glass-surface: linear-gradient(125deg, rgba(221, 229, 234, .35), rgba(245, 246, 248, .6));
+  --site-action-text: var(--site-accent);
+  --site-action-hover: var(--site-accent-strong);
+
+  --site-media-surface: rgba(235, 238, 240, 0.8);
+  --site-media-glass: rgba(245, 247, 250, 0.62);
+  --site-media-glass-highlight: rgba(255, 255, 255, 0.45);
+  --site-media-text: #25272c;
+  --site-media-line: rgba(30, 35, 40, 0.15);
+  --site-media-caption-surface: #f7f8fa;
+  --site-media-caption-text: #555b65;
+
+  --site-dialog-surface: rgba(245, 247, 249, 0.88);
+  --site-dialog-text: #20252a;
+  --site-dialog-border: rgba(255, 255, 255, 0.5);
+  --site-dialog-backdrop: rgba(12, 17, 23, .65);
+
+  --site-control-hover: rgba(128, 128, 128, .15);
+  --site-control-hover-subtle: rgba(128, 128, 128, .12);
+
+  --site-image-tint-opacity: .16;
+
+  --site-card-text: var(--site-text);
+  --site-card-muted: var(--site-muted);
+
+  --site-badge-surface: #e8ebef;
+  --site-badge-text: #25272c;
+  --site-badge-hover-surface: #dce1e7;
+  --site-badge-hover-text: #17191e;
+
+  --bs-body-font-family: Helvetica, Arial, sans-serif;
+  --bs-body-color: #000;
+  --bs-body-bg: #fff;
+}
+
+[data-bs-theme="dark"] {
+  --site-text: #e6e7eb;
+  --site-muted: #b4b7c0;
+  --site-line: rgba(255, 255, 255, .12);
+  --site-surface: rgba(100, 117, 128, .13);
+  --site-card-background: #202226;
+  --site-glass-surface: linear-gradient(125deg, rgba(61, 71, 79, .24), rgba(33, 35, 40, .55));
+  --site-action-text: var(--site-accent-soft);
+  --site-action-hover: #fff;
+
+  --site-media-surface: rgba(35, 39, 44, 0.85);
+  --site-media-glass: rgba(25, 29, 35, 0.62);
+  --site-media-glass-highlight: rgba(255, 255, 255, 0.12);
+  --site-media-text: #f1f2f4;
+  --site-media-line: rgba(255, 255, 255, 0.14);
+  --site-media-caption-surface: #1c1f24;
+  --site-media-caption-text: #c4c8d0;
+
+  --site-dialog-surface: rgba(30, 34, 39, 0.9);
+  --site-dialog-text: #f1f3f5;
+  --site-dialog-border: rgba(255, 255, 255, 0.14);
+
+  --site-image-tint-opacity: .3;
+
+  --site-card-text: #f1f2f5;
+  --site-card-muted: #ced0d6;
+
+  --site-badge-surface: #393d45;
+  --site-badge-text: #f7f8fa;
+  --site-badge-hover-surface: #484e58;
+  --site-badge-hover-text: #fff;
+
+  --bs-body-color: #fff;
+  --bs-body-bg: #181818;
+}

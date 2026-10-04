@@ -4,6 +4,9 @@ title: "Animation – English Breakfast"
 draft: false
 
 params:
+  preview: "A short animation of an English breakfast being prepared, using custom models and solid-color materials."
+  category: "modeling"
+  category_order: 2
   type: "Course project"
   image:
     src: "media/projects/english-breakfast/english-breakfast4.jpg"

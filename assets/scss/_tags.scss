@@ -5,8 +5,11 @@
 }
 
 .tag-badge {
+  background: var(--site-badge-surface);
+  color: var(--site-badge-text);
   display: inline-block;
   padding: 0.4rem 0.9rem;
+  border: 0;
   border-radius: 999px;
   font-size: 0.9rem;
   white-space: nowrap;
@@ -15,34 +18,19 @@
   transition:
     background 0.2s ease,
     color 0.2s ease;
-}
 
-[data-bs-theme="dark"] {
-  .tag-badge {
-    background: #2f2f2f;
-    color: #eee;
-
-    &:hover {
-      background: #444;
-    }
+  &:hover,
+  &:focus-visible {
+    background: var(--site-badge-hover-surface);
+    color: var(--site-badge-hover-text);
   }
-}
 
-[data-bs-theme="light"] {
-  .tag-badge {
-    background: #f0f0f0;
-    color: #222;
-
-    &:hover {
-      background: #ddd;
-    }
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
   }
 }
 
 a.tag-badge {
   text-decoration: none;
-
-  &:hover {
-    color: inherit !important;
-  }
 }

@@ -4,6 +4,9 @@ title: "Tearaparthian"
 draft: false
 
 params:
+  preview: "A shoot 'em up inspired by Tyrian, with enemy attack patterns, weapon upgrades and a custom spaceship."
+  category: "games"
+  category_order: 2
   type: "Video game"
   image:
     src: "media/projects/tyrian/tyrian2.jpg"
@@ -32,4 +35,4 @@ The game features three levels:
 The game was developed for both desktop and mobile platforms.
 
 
-{{<project-video src="media/projects/tyrian/tyrian" description="Gameplay footage from the final game">}}
+{{<project-video volume_controls=false src="media/projects/tyrian/tyrian" description="Gameplay footage from the final game">}}

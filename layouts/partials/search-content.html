@@ -1,6 +1,6 @@
 {{- /* Remove marked UI symbols, preserve captions and modal descriptions */ -}}
 {{- $content := replaceRE `(?s)<span data-search-exclude\b[^>]*>.*?</span>` " " .Content -}}
-{{- /* Preserve separation between paragraphs and descriptions when removing tags. */ -}}
+{{- /* Preserve separation between paragraphs and descriptions when removing tags */ -}}
 {{- $content = replaceRE `</(?:p|div|h[1-6]|li|template|button)>|<br\s*/?>` " " $content -}}
 {{- /* Decode after stripping tags so escaped article text stays literal text */ -}}
 {{- return (strings.TrimSpace (replaceRE `\s+` " " (htmlUnescape (plainify $content)))) -}}

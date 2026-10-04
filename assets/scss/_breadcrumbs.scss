@@ -1,0 +1,76 @@
+.site-breadcrumbs {
+  --breadcrumb-text: var(--site-text);
+  --breadcrumb-muted: var(--site-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 0;
+  margin: 0;
+  padding: 12px 0;
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--breadcrumb-muted);
+}
+
+.site-breadcrumbs-item {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+
+  // The separator belongs to this component, avoiding Bootstrap's extra slash
+  & + &::before {
+    content: "›";
+    flex-shrink: 0;
+    margin-inline: 12px;
+    color: var(--breadcrumb-muted);
+  }
+
+  a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+    color: var(--breadcrumb-muted);
+    text-decoration: none;
+    border-radius: 3px;
+
+    &:hover {
+      color: var(--breadcrumb-text);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
+    }
+  }
+
+  svg {
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  &[aria-current="page"] {
+    color: var(--breadcrumb-text);
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-breadcrumbs {
+    font-size: 13px;
+  }
+
+  .site-breadcrumbs-item + .site-breadcrumbs-item::before {
+    margin-inline: 8px;
+  }
+}

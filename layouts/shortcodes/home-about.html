@@ -1,0 +1,11 @@
+<section class="home-about" id="about" aria-labelledby="about-heading">
+  <div class="home-about-watermark" aria-hidden="true">
+    {{ with resources.Get "media/about/crane.svg" }}{{ .Content | safeHTML }}{{ end }}
+  </div>
+  <header class="home-about-heading">
+    <h2 id="about-heading">{{ .Get "title" }}</h2>
+  </header>
+  <div class="home-about-story">
+    {{ .Get "content" | safeHTML }}
+  </div>
+</section>

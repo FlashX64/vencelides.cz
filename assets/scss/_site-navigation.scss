@@ -1,0 +1,37 @@
+#header .navbar-nav .nav-link {
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: normal;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+
+  &[aria-current]::after {
+    opacity: 0.65;
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+    border-radius: 3px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  #header .navbar-nav .nav-link::after {
+    bottom: 6px;
+  }
+}
+

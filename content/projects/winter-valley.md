@@ -4,6 +4,8 @@ title: "WinterValley"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 11
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/winter-valley.jpg"

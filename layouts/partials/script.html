@@ -1,0 +1,7 @@
+{{ $source := printf "ts/%s.ts" . }}
+{{ with resources.Get $source }}
+  {{ $script := . | js.Build (dict "targetPath" (printf "js/%s.js" $) "target" "es2020" "minify" hugo.IsProduction) | fingerprint }}
+  <script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ else }}
+  {{ errorf "Required script not found: assets/%s. Restart Hugo if this file was just added." $source }}
+{{ end }}

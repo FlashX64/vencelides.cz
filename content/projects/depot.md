@@ -4,6 +4,8 @@ title: "Depot"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 9
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/depot1.jpg"

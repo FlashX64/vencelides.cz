@@ -4,6 +4,8 @@ title: "EnTe"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 8
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/ente1.jpg"

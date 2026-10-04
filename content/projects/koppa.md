@@ -5,6 +5,9 @@ draft: false
 weight: 10
 
 params:
+  preview: "An original Vietcong jungle map, designed for clear navigation and cooperative play. Still part of the community's map rotation."
+  category: "modding"
+  category_order: 3
   type: "Vietcong map"
   image:
     src: "media/projects/vietcong/koppa1.jpg"

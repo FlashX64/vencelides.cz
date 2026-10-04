@@ -4,6 +4,8 @@ title: "Seek mode"
 draft: false
 
 params:
+  category: "modding"
+  category_order: 2
   type: "Vietcong scripting"
   image:
     src: "media/projects/vietcong/seek-mode1.jpg"

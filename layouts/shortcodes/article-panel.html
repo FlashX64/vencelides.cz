@@ -1,0 +1,6 @@
+{{ $kind := .Get "kind" | default "note" }}
+{{ if not (in (slice "note" "features" "steps" "comparison" "facts" "table") $kind) }}{{ $kind = "note" }}{{ end }}
+<div class="article-panel article-panel--{{ $kind }}"{{ with .Get "title" }} role="group" aria-label="{{ . }}"{{ end }}>
+  {{ with .Get "title" }}<p class="article-panel-label">{{ . }}</p>{{ end }}
+  {{ .Inner | .Page.RenderString (dict "display" "block") }}
+</div>

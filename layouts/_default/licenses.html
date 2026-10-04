@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section id="main-content" tabindex="-1" class="licenses-page py-5">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range .Params.licenses }}
+    <section class="license-entry" aria-labelledby="license-{{ .file | anchorize }}">
+      <h2 id="license-{{ .file | anchorize }}">{{ .name }}</h2>
+      <pre class="license-text">{{ readFile (printf "static/licenses/%s" .file) }}</pre>
+    </section>
+  {{ end }}
+</section>
+{{ end }}

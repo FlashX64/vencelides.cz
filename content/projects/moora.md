@@ -4,6 +4,9 @@ title: "3D model – Moora"
 draft: false
 
 params:
+  preview: "A sci-fi robot based on my original concept, modeled in Blender for the 3D Modeling course at Masaryk University."
+  category: "modeling"
+  category_order: 1
   type: "Course project"
   image:
     src: "media/projects/moora/moora1.jpg"
@@ -20,26 +23,29 @@ Moora is a sci-fi robot inspired by nature, designed to help restore ecosystems 
 
 ## Results
 {{< carousel images="carousel-moora.images" duration="5000" >}}
-<br/>
 
 ## Design
-Moora combines organic elements with functional elements:
-* Moth-like body shape
-* High-visibility caution coloring (inspired by nature)
-* Soil-contact sensor – measures moisture, pH, and nutrient levels
-* Optical system – proximity scanning and infrared imaging (leaf health, water stress)
-* Watering module – integrated nozzle and storage tank
-* Wing-mounted sensors – solar energy collection and environmental data gathering
-* GPS antennas – navigation
+Moora combines a moth-like body shape with high-visibility caution coloring inspired by nature. Its functional systems support the robot's role in environmental monitoring and restoration.
 
-<br/>
+{{< article-panel kind="features" title="Functional systems" >}}
+- **Soil-contact sensor**
+  Measures moisture, pH, and nutrient levels
+- **Optical system**
+  Proximity scanning and infrared imaging for leaf health and water stress
+- **Watering module**
+  Integrated nozzle and storage tank
+- **Wing-mounted sensors**
+  Solar energy collection and environmental data gathering
+- **GPS antennas**
+  Navigation
+{{< /article-panel >}}
+
 {{<project-picture
   src="media/projects/moora/moora-viewport.jpg"
   description="Moora – viewport"
 >}}
 
-<br/>
-<h2>Third-Party Assets</h2>
+## Third-Party Assets
 
 _All third-party assets are licensed under CC0._
 

@@ -1,0 +1,18 @@
+// Tint a surface with its own image while keeping the foreground sharp
+@mixin frosted-image {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -28px;
+    background-image: var(--project-image);
+    background-size: cover;
+    background-position: center;
+    filter: blur(28px) saturate(125%);
+    opacity: var(--site-image-tint-opacity);
+    pointer-events: none;
+  }
+}

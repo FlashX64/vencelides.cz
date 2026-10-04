@@ -4,16 +4,23 @@
 {{ $video720 := resources.Get (printf "%s-720p.mp4" $src) }}
 {{ $video1080 := resources.Get (printf "%s-1080p.mp4" $src) }}
 
+{{ $highestQuality := or $video1080 $video720 $video480 }}
+
 {{ $desc := .Get "description" }}
 {{ $class := .Get "class" }}
+{{ $volumeControls := ne (printf "%v" (.Get "volume_controls")) "false" }}
+{{ $loop := ne (printf "%v" (.Get "loop")) "false" }}
 
-<div class="project-media">
+<figure class="project-player" data-volume-controls="{{ $volumeControls }}">
+  <div class="project-player-stage">
     <video
     class="{{ $class }} project-video"
-    loop
+    {{ if $loop }}loop{{ end }}
     muted
     playsinline
-    autoplay
+    controls
+    aria-label="{{ $desc | default "Project video" | markdownify | plainify }}"
+    {{ with $highestQuality }}data-fullscreen-src="{{ .RelPermalink }}"{{ end }}
     preload="metadata">
 
     <!-- Reduced data -->
@@ -44,11 +51,34 @@
         src="{{ .RelPermalink }}"
         type="video/mp4">
     {{ end }}
-</div>
-{{ with $desc }}
-    <div class="d-flex justify-content-center">
-        <div class="project-video-desc-caption p-1">
-            {{ . | markdownify }}
-        </div>
+    </video>
+  <div class="project-player-controls" role="group" aria-label="Video controls" hidden>
+    <button type="button" data-video-play aria-label="Play video">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path data-play-icon d="M8 5v14l11-7Z"/><path data-pause-icon d="M6 5h4v14H6zm8 0h4v14h-4Z" hidden/></svg>
+    </button>
+    <span class="project-player-time" data-video-time data-search-exclude>0:00 / 0:00</span>
+    <input class="project-player-seek" data-video-seek type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek video" disabled>
+    <button type="button" data-video-loop aria-label="Loop video" aria-pressed="{{ $loop }}" title="Loop video">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m16 3 4 4-4 4M4 11V9a2 2 0 0 1 2-2h14M8 21l-4-4 4-4m12 0v2a2 2 0 0 1-2 2H4"/></svg>
+    </button>
+    {{ if $volumeControls }}
+    <button type="button" data-video-volume-toggle aria-label="Show volume controls" aria-expanded="false" aria-controls="video-volume-{{ .Ordinal }}" title="Volume controls">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M11 5 6 9H3v6l5 4Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg>
+    </button>
+    <div class="project-player-volume-controls" id="video-volume-{{ .Ordinal }}" data-video-volume-panel hidden>
+    <button type="button" data-video-mute aria-label="Unmute video" aria-pressed="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4Z"/><path data-muted-icon d="m16 9 6 6m0-6-6 6"/><path data-volume-icon d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" hidden/></svg>
+    </button>
+    <input class="project-player-volume" data-video-volume type="range" min="0" max="1" value="0" step="0.05" aria-label="Volume">
     </div>
+    {{ end }}
+    <button type="button" data-video-fullscreen aria-label="Enter fullscreen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></svg>
+    </button>
+  </div>
+  </div>
+  <p class="project-player-message" data-video-message role="status" hidden></p>
+{{ with $desc }}
+  <figcaption>{{ . | markdownify }}</figcaption>
 {{ end }}
+</figure>
