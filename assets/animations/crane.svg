@@ -8,6 +8,11 @@
 .crane .wing-right { animation-name: crane-right; }
 .crane .head { animation-name: crane-head; }
 .crane .cover { opacity: 0; animation-name: crane-reveal; }
+.crane .cover-edge { fill: none; stroke: black; stroke-width: 1.6; opacity: 0; animation-name: crane-cover-edge; animation-timing-function: steps(1, end); }
+@keyframes crane-cover-edge {
+  0% { opacity: 0; }
+  50.470219%, 100% { opacity: 1; }
+}
 
 .crane .cooling { fill: var(--crane-background, transparent); opacity: 0; animation-name: crane-warmth; animation-timing-function: linear; }
 @keyframes crane-warmth {
@@ -326,6 +331,8 @@
 .crane { --crane-duration: 2900ms; }
 </style>
   <defs>
+    <mask id="crane-cover-edge-right" maskUnits="userSpaceOnUse" x="60" y="100" width="130" height="90" style="mask-type:luminance"><path fill="white" d="M60 100H190V190H60Z"/><path class="cover-edge motion" d="M136.30826 151.23373 163.5836 133.43223 A1.5774668 1.5774668 0 0 1 165.77261 133.89939 L176.17611 150.06326 A1.4058805 1.4058805 0 0 1 175.9105 151.89054 L167.84742 155.8443 140.6403 169.01042 136.31826 167.21363Z"/></mask>
+    <mask id="crane-cover-edge-left" maskUnits="userSpaceOnUse" x="60" y="100" width="130" height="90" style="mask-type:luminance"><path fill="white" d="M60 100H190V190H60Z"/><path class="cover-edge motion" d="M124.76736 156.96981 89.243435 132.9966 A1.5343414 1.5343414 0 0 0 87.084911 133.45394 L77.068468 149.44521 A1.4384939 1.4384939 0 0 0 77.497382 151.41098 L85.262283 155.28103 114.5437 169.83156 124.76736 173.949Z"/></mask>
     <mask id="crane-burn-left" maskUnits="userSpaceOnUse" x="60" y="100" width="130" height="90" style="mask-type:luminance">
       <path fill="white" d="M60 100H190V190H60Z"/><path class="burn-path motion trunk burn-cut" pathLength="1" d="M126.6 175.84 104.8 157.7"/>
 <path class="burn-path motion branch burn-cut" pathLength="1" d="M104.8 157.7 94 143"/>
@@ -345,13 +352,13 @@
     <g class="flight motion ink">
       <g transform="translate(124.76736 157)"><g class="wing-left motion"><g transform="translate(-124.76736 -157)">
         <g clip-path="url(#crane-left-clip)">
-          <path class="cover motion" mask="url(#crane-burn-left)" d="M124.76736 156.96981 89.243435 132.9966 A1.5343414 1.5343414 0 0 0 87.084911 133.45394 L77.068468 149.44521 A1.4384939 1.4384939 0 0 0 77.497382 151.41098 L85.262283 155.28103 114.5437 169.83156 124.76736 173.949Z"/>
+          <g mask="url(#crane-cover-edge-left)"><path class="cover motion" mask="url(#crane-burn-left)" d="M124.76736 156.96981 89.243435 132.9966 A1.5343414 1.5343414 0 0 0 87.084911 133.45394 L77.068468 149.44521 A1.4384939 1.4384939 0 0 0 77.497382 151.41098 L85.262283 155.28103 114.5437 169.83156 124.76736 173.949Z"/></g>
           <g mask="url(#crane-gap-left)" clip-path="url(#crane-flare-left)"><path class="cooling motion" mask="url(#crane-burn-left)" d="M124.76736 156.96981 89.243435 132.9966 A1.5343414 1.5343414 0 0 0 87.084911 133.45394 L77.068468 149.44521 A1.4384939 1.4384939 0 0 0 77.497382 151.41098 L85.262283 155.28103 114.5437 169.83156 124.76736 173.949Z"/><path class="motion fragment" pathLength="1" d="M126.6 175.84 104.8 157.7"/><path class="motion fragment fragment-tip" pathLength="1" d="M104.8 157.7 94 143"/><path class="motion fragment fragment-tip" pathLength="1" d="M104.8 157.7 78 151.8"/></g><use href="#crane-left-original"/>
 
         </g>
       </g></g></g>
       <g transform="translate(136.30826 157)"><g class="wing-right motion"><g transform="translate(-136.30826 -157)">
-        <path class="cover motion" mask="url(#crane-burn-right)" d="M136.30826 151.23373 163.5836 133.43223 A1.5774668 1.5774668 0 0 1 165.77261 133.89939 L176.17611 150.06326 A1.4058805 1.4058805 0 0 1 175.9105 151.89054 L167.84742 155.8443 140.6403 169.01042 136.31826 167.21363Z"/>
+        <g mask="url(#crane-cover-edge-right)"><path class="cover motion" mask="url(#crane-burn-right)" d="M136.30826 151.23373 163.5836 133.43223 A1.5774668 1.5774668 0 0 1 165.77261 133.89939 L176.17611 150.06326 A1.4058805 1.4058805 0 0 1 175.9105 151.89054 L167.84742 155.8443 140.6403 169.01042 136.31826 167.21363Z"/></g>
         <g mask="url(#crane-gap-right)" clip-path="url(#crane-flare-right)"><path class="cooling motion" mask="url(#crane-burn-right)" d="M136.30826 151.23373 163.5836 133.43223 A1.5774668 1.5774668 0 0 1 165.77261 133.89939 L176.17611 150.06326 A1.4058805 1.4058805 0 0 1 175.9105 151.89054 L167.84742 155.8443 140.6403 169.01042 136.31826 167.21363Z"/><path class="motion fragment" pathLength="1" d="M138.47928 168.11203 150 157.7"/><path class="motion fragment fragment-tip" pathLength="1" d="M150 157.7 160 143"/><path class="motion fragment fragment-tip" pathLength="1" d="M150 157.7 175.5 152.2"/></g><use href="#crane-right-original"/>
 
       </g></g></g>
