@@ -62,10 +62,21 @@ elements(".project-player").forEach((player) => {
       !video.paused &&
       !player.classList.contains("is-controls-visible");
     showControls();
+    window.clearTimeout(hideControlsTimer);
   });
 
-  stage.addEventListener("pointerleave", () => {
-    player.classList.remove("is-controls-visible");
+  stage.addEventListener("pointerup", showControls);
+
+  stage.addEventListener("pointercancel", () => {
+    revealOnly = false;
+    showControls();
+  });
+
+  stage.addEventListener("pointerleave", (event) => {
+    // Touch pointers leave the element when the finger lifts
+    if (event.pointerType === "mouse") {
+      player.classList.remove("is-controls-visible");
+    }
   });
 
   player.addEventListener("focusin", showControls);
