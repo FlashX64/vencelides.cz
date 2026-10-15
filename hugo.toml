@@ -1,5 +1,5 @@
 baseURL = "https://www.vencelides.cz/"
-title = "Filip Vencelides | Software Engineer ⸱ Game Dev Enthusiast"
+title = "Filip Vencelides | Software Engineer ⸱ Game Developer"
 languageCode = "en-us"
 enableRobotsTXT = true
 
@@ -24,8 +24,8 @@ source = "node_modules/bootstrap/scss"
 target = "assets/scss/bootstrap"
 
 [params]
-title = 'Filip Vencelides | Software Engineer ⸱ Game Dev Enthusiast'
-description = 'Game development student and 3D tooling developer based in Brno, with a decade of experience in game modding and a background in real-world 3D software development.'
+title = 'Filip Vencelides | Software Engineer ⸱ Game Developer'
+description = 'Game developer at Ingame Studios and Visual Informatics student based in Brno, with over a decade of experience in game modding and a background in 3D tools development.'
 images = ['/img/og-preview.png']
 
 [params.seo]

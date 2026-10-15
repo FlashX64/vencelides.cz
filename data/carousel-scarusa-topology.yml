@@ -1,0 +1,5 @@
+images:
+  - image: /media/projects/scarusa/scarusa-topology-face.jpg
+    description: "Facial topology and snake head meshes."
+  - image: /media/projects/scarusa/scarusa-topology-front.jpg
+    description: "Front view of the control mesh. The snake bodies are curve-based, thus having no wireframe overlay."

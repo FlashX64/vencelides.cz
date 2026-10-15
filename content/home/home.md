@@ -6,10 +6,10 @@ draft = false
  
 {{< home-introduction
     name="Filip Vencelides"
-    role="Software Engineer · Game Dev Enthusiast"
+    role="Software Engineer · Game Developer"
     image="media/about/me.jpg"
-    description="I build tools for 3D graphics and game development. Over a decade of modding Vietcong led me from making maps and scripts to developing level editors, Blender addons, and rendering tools."
-    current="Based in Brno, I'm studying Visual Informatics at Masaryk University, specializing in Game Development, while continuing part-time work on tools for 3D Concrete Printing at ICE Industrial Services."
+    description="I build tools for 3D graphics and game development. Over a decade of modding Vietcong led me from making maps and writing scripts to developing modding tools and exploring real-time rendering."
+    current="Based in Brno, I work as a Junior Game Developer at Ingame Studios while studying Visual Informatics at Masaryk University, specializing in Game Development."
     contact="https://linkedin.com/in/filip-vencelides"
     github="https://github.com/flashx64"
 >}}

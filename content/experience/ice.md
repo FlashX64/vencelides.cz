@@ -5,7 +5,8 @@ title: "3DCP Slicer Development"
 jobTitle: "Software Developer"
 company: "ICE Industrial Services"
 location: "Žďár nad Sázavou, Czech Republic"
-duration: "2021-present"
+startYear: 2021
+endYear: 2026
 companyLogo: "media/experience/ice.jpg"
 accent: "ice"
 ---

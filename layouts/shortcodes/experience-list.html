@@ -4,7 +4,7 @@
 <section id="{{ $sectionId }}" class="home-experience" aria-labelledby="{{ $sectionId }}-heading">
   <h2 id="{{ $sectionId }}-heading">{{ $title }}</h2>
   <div class="home-experience-list">
-    {{ range (where .Site.RegularPages "Type" "experience").ByDate.Reverse }}
+    {{ range sort (where .Site.RegularPages "Type" "experience") "Params.startYear" "desc" }}
       {{ $company := .Params.company }}
       <article class="home-experience-card"{{ with .Params.accent }} data-accent="{{ . }}"{{ end }}>
         <header class="home-experience-identity">
@@ -12,15 +12,17 @@
             {{ $logo := .Resize "160x webp q85" }}
             <img class="home-experience-logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}" height="{{ $logo.Height }}" alt="{{ $company }} logo" loading="lazy">
           {{ end }}
-          <p class="home-experience-date">{{ replace .Params.duration "-" "–" }}</p>
+          <p class="home-experience-date">{{ .Params.startYear }}–{{ .Params.endYear | default "present" }}</p>
           <h3>{{ $company }}</h3>
-          <p class="home-experience-role">{{ .Params.jobTitle }}</p>
-          <p class="home-experience-location">{{ .Params.location }}</p>
+          {{ with .Params.jobTitle }}<p class="home-experience-role">{{ . }}</p>{{ end }}
+          {{ with .Params.location }}<p class="home-experience-location">{{ . }}</p>{{ end }}
         </header>
+        {{ if .Content }}
         <div class="home-experience-story">
           <h4>{{ .Title }}</h4>
           {{ .Content }}
         </div>
+        {{ end }}
       </article>
     {{ end }}
   </div>

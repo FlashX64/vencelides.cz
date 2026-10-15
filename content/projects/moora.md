@@ -6,7 +6,7 @@ draft: false
 params:
   preview: "A sci-fi robot based on my original concept, modeled in Blender for the 3D Modeling course at Masaryk University."
   category: "modeling"
-  category_order: 1
+  category_order: 2
   type: "Course project"
   image:
     src: "media/projects/moora/moora1.jpg"

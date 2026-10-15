@@ -3,7 +3,7 @@
     "lightmapper",
     "cryogenesis",
     "lutsip",
-    "moora"
+    "scarusa"
   ],
   "categories": [
     {
@@ -28,7 +28,7 @@
       "id": "modeling",
       "title": "3D modeling",
       "description": "Original models and animations",
-      "cover": "moora"
+      "cover": "scarusa"
     }
   ]
 }

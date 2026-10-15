@@ -47,6 +47,16 @@
   --experience-tint: rgba(0, 150, 180, .09);
 }
 
+.home-experience-card[data-accent="igs"] {
+  --experience-accent: #a58b00;
+  --experience-tint: rgba(255, 226, 55, .1);
+}
+
+[data-bs-theme="dark"] .home-experience-card[data-accent="igs"] {
+  --experience-accent: #ffeb4d;
+  --experience-tint: rgba(255, 235, 77, .08);
+}
+
 .home-experience-card::before {
   content: "";
   position: absolute;
