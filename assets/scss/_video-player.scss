@@ -20,6 +20,7 @@
       display: block;
       width: 100%;
       height: auto;
+      aspect-ratio: auto 16 / 9;
       max-height: 75vh;
       object-fit: contain;
       cursor: pointer;
@@ -49,6 +50,7 @@
     transition: opacity 0.2s;
   }
 
+  &.is-paused .project-player-controls,
   &.is-controls-visible .project-player-controls,
   .project-player-controls:has(:focus-visible) {
     opacity: 1;

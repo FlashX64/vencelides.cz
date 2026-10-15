@@ -59,6 +59,7 @@ elements(".project-player").forEach((player) => {
     revealOnly =
       event.pointerType === "touch" &&
       event.target === video &&
+      !video.paused &&
       !player.classList.contains("is-controls-visible");
     showControls();
   });
@@ -339,10 +340,4 @@ elements(".project-player").forEach((player) => {
   // Native controls remain available if JavaScript cannot initialise the player
   controls.hidden = false;
   video.controls = false;
-
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    void video.play().catch(() => {
-      // Autoplay can be blocked; the play button remains available
-    });
-  }
 });
