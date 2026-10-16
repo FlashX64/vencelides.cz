@@ -1,7 +1,7 @@
 ---
 draft: false
 title: "Game Development"
-jobTitle: "Junior Game Developer"
+jobTitle: "Junior Game Programmer"
 company: "Ingame Studios"
 location: "Brno, Czech Republic"
 startYear: 2026
