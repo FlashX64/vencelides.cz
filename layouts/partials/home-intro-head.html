@@ -74,6 +74,8 @@
   {{ if hugo.IsDevelopment }}
     {{ partial "script.html" "home-intro-debug" }}
   {{ end }}
-  {{ partial "script.html" "home-intro" }}
+  {{/* Run before the body is parsed so the page is never shown before the intro */}}
+  {{ $intro := resources.Get "ts/home-intro.ts" | js.Build (dict "target" "es2020" "minify" hugo.IsProduction) }}
+  <script>{{ $intro.Content | safeJS }}</script>
 {{ end }}
 
