@@ -26,8 +26,6 @@ The game is set deep within a classified underground research facility overrun b
   <a target="_blank" rel="noopener noreferrer" href="https://mikusaq.itch.io/cryogenesis" class="btn btn-primary">Download on itch.io</a>
 </div>
 
-## Finished game
-
 {{< article-panel kind="features" title="My contribution" >}}
 
 - **Camera and gameplay events**
@@ -35,6 +33,8 @@ The game is set deep within a classified underground research facility overrun b
 - **Art direction and environments**
   I led most of the art direction and level design. I modeled and textured all 3D assets, including the level environments, except the zombie enemy. I used AI-generated textures as a starting point, then manually refined them, adjusted their colors, added details, and reduced their resolution to match the game's retro aesthetic.
   {{< /article-panel >}}
+
+## Finished game
 
 Screenshots and gameplay footage from the finished game.
 
